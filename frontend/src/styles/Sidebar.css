@@ -22,14 +22,7 @@
 .sidebar__container{
     background-color: white;
     width: 100%;
-    padding: 10px;
-}
-
-.sidebar-link{
-    color: #ECA4B0;
-    font-size: 20px;
-    align-items: center;
-    text-decoration: none;
+    padding: 5px;
 }
 
 .sidebar__close-button {
@@ -41,25 +34,72 @@
 }
 
 .sidebar__times-icon{
-    font-size: 20px;
+    font-size: 30px;
 }
 
-.sidebar__button-container {
+.sidebar-divider{
+    border-top: 2px solid #D9D9D9;
+}
+
+.sidebar__content{
     display: flex;
     flex-direction: column;
+    height: 100%;
+    gap: 20px;
     align-items: center;
 }
-  
-.sidebar__left-icons {
+
+.sidebar__search-container{
     display: flex;
-    margin-right: auto; 
+    background-color: white;
+    border-radius: 5px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    border: 2px solid #D9D9D9;
+    margin-top: 15px;
+    width: 90%;
 }
-  
-.sidebar-link {
-    margin-right: 10px; 
+
+.sidebar__search-icon{
+    color: #6A6A6A;
+}
+
+.sidebar__search-input{
+    border: none;
+    outline: none;
+    background-color: white;
 }
 
 .sidebar__menu-item{
     display: flex;
     flex-direction: column;
+    gap: 24px;
+    padding-left: 20px;
+    width: 100%;
+}
+
+.sidebar__button{
+    display: flex;
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: #6A6A6A;
+    gap: 10px;
+    align-items: center;
+}
+
+.sidebar-login{
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+}
+.sidebar__btn-login{
+    padding: 5px 20px;
+    color: white;
+    background-color: #ECA4B0;
+    border: none;
+    font-size: 16px;
+    font-weight: bolder;
+    border-radius: 5px;
 }
