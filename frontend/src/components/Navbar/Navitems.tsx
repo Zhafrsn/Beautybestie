@@ -1,23 +1,17 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faSearch, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faCube, faHeart, faHome, faInfoCircle, faSearch, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/Navbar.css";
 import logo from '../../assets/Logo.PNG';
 
-type NavItem = {
-  label: string;
-  href: string;
-  icon: React.ReactNode;
-};
-
-export const navItems: NavItem[] = [
-  { label: "Home", href: "/", icon: <span>Home Icon</span> },
-  { label: "Product", href: "/product", icon: <span>Product Icon</span> },
-  { label: "About Us", href: "/about-us", icon: <span>Blog Icon</span> },
+export const navItems = [
+  { label: "Home", href: "/", icon: <FontAwesomeIcon icon={faHome} />},
+  { label: "Product", href: "/product", icon: <FontAwesomeIcon icon={faCube}/> },
+  { label: "About Us", href: "/about-us", icon: <FontAwesomeIcon icon={faInfoCircle}/> },
 ];
 
-const Navitems: React.FC = () => {
+export const Navitems: React.FC = () => {
   return (
     <nav className="navbar">
       <div className="navbar__web-title">
@@ -60,5 +54,3 @@ const Navitems: React.FC = () => {
     </nav>
   );
 };
-
-export default Navitems;

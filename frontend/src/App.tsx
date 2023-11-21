@@ -1,16 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Navbar } from './components/Navbar';
-import { Footer } from './components/Footer';
 import './styles/Global.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Home } from './pages/Home';
 
 export const App: React.FC = () => {
   return (
-    <Router>
-      <div>
-        <Navbar />
-        <Footer />
-      </div>
-    </Router>
+    <>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home />} />
+        </Routes>
+      </Router>
+    </>
   );
 };
