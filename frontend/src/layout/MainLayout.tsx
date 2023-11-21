@@ -1,27 +1,18 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import React from "react";
 import { Navbar } from "../components/Navbar";
 import { Sidebar } from "../components/Sidebar";
 import { Footer } from "../components/Footer";
-// import { Chat } from "@/components/Chat/Chat";
 
-interface MainLayoutProps {
-  children: React.ReactNode;
-}
-
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+export const MainLayout: React.FC<{children: React.ReactNode}> = ({children}) => {
   return (
-    <div className="main-layout">
-      <Sidebar contentId="main-content" />
-      <div id="main-content" className="main-content">
-        <Navbar />
-        <div className="content-wrapper ion-padding">
+    <div>
+      <Sidebar contentId="side-bar" isOpen={false} toggleSidebar={() => {}} />
+      <Navbar />
+        <div>
           {children}
-          {/* <Chat /> */}
         </div>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };
-
-export default MainLayout;
