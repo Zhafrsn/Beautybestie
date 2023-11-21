@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/Navbar.css";
-import Navitems from "./Navitems";
+import { Navitems } from "./Navitems";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logo from '../../assets/Logo.PNG';
 import { Sidebar } from "components/Sidebar";
@@ -42,7 +42,6 @@ export const Navbar: React.FC = () => {
       ) : (
         <>
           <Navitems />
-          <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         </>
       )}
     </header>
