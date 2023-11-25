@@ -1,0 +1,47 @@
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  padding: 60px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 10px; /* Tambahkan margin agar ada jarak antar kartu */
+  text-align: center;
+ }
+
+.card:nth-child(1) {
+  background-color: #E74BE9; 
+}
+
+.card:nth-child(2) {
+  background-color: #89C3F8; 
+}
+.card:nth-child(3) {
+  background-color: #ECA4B2; 
+}
+.card:nth-child(4) {
+  background-color: #BFA562; 
+}
+
+.logo {
+  max-width: 250px;
+  height: auto;
+  object-fit:contain;
+  color: #ffffffff;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 80%; /* Atur lebar kartu agar responsif di layar kecil */
+  }
+
+  .card-logo {
+    max-width: 80%; /* Atur lebar logo agar tidak terlalu besar di layar kecil */
+  }
+}
