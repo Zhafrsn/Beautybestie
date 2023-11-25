@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import "../../styles/Navbar.css";
-import { Navitems } from "./Navitems";
+import React, { useEffect, useState } from 'react';
+import '../../styles/Navbar.css';
+import { Navitems } from './Navitems';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logo from '../../assets/Logo.PNG';
-import { Sidebar } from "components/Sidebar";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { Sidebar } from 'components/Sidebar';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 export const Navbar: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -19,10 +19,10 @@ export const Navbar: React.FC = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -31,7 +31,7 @@ export const Navbar: React.FC = () => {
       {windowWidth <= 1024 ? (
         <div className="navbar__mobile">
           <div className="navbar__web-title">
-            <img src={logo} className='navbar__logo-image' alt='logo'/>
+            <img src={logo} className="navbar__logo-image" alt="logo" />
             <span className="navbar__title">eautyBestie</span>
           </div>
           <button className="navbar__menu-button" onClick={toggleSidebar}>
