@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Register.css';
+import '../../styles/Register.css';
 
 export const Register: React.FC = () => {
   const [fullName, setFullName] = useState('');

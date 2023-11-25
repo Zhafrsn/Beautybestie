@@ -1,6 +1,6 @@
 import Carousel from 'components/Ads/Ads';
 import { MainLayout } from 'layout';
-import '../styles/Home.css';
+// import '../styles/Home.css';
 import Card from '../../components/Brand/Brand';
 
 export const Home: React.FC = () => {

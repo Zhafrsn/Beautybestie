@@ -24,11 +24,13 @@
 }
 
 .Register button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
+  padding: 8px 12px;
+  font-size: 16px;
+  background-color: #eca4b0;
   color: #fff;
+  font-weight: bold;
   border: none;
+  border-color: #cccccc;
   border-radius: 4px;
   cursor: pointer;
 }
