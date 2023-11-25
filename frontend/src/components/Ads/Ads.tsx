@@ -14,7 +14,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 1000, // Sesuaikan dengan kecepatan slide
+    speed: 900, // Sesuaikan dengan kecepatan slide
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
