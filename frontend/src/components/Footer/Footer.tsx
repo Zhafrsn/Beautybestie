@@ -2,14 +2,13 @@ import React from 'react';
 import '../../styles/Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTwitter, faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import logo from '../../assets/Logo.PNG';
 
 export const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <section className="footer__item">
         <div className="footer__web-title">
-          <img src={logo} className="footer__logo-image" alt="logo" />
+          <img src={'images/logo.png'} className="footer__logo-image" alt="logo" />
           <p>BeautyBestie</p>
         </div>
         <div className="footer__more-info">

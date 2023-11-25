@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCube, faHeart, faHome, faInfoCircle, faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/Navbar.css';
-import logo from '../../assets/Logo.PNG';
 
 export const navItems = [
   { label: 'Home', href: '/', icon: <FontAwesomeIcon icon={faHome} /> },
@@ -15,7 +14,7 @@ export const Navitems: React.FC = () => {
   return (
     <nav className="navbar">
       <div className="navbar__web-title">
-        <img src={logo} className="navbar__logo-image" alt="logo" />
+        <img src={'images/logo.png'} className="navbar__logo-image" alt="logo" />
         <span className="navbar__title">eautyBestie</span>
       </div>
       <div className="nav-item">

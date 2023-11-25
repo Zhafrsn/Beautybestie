@@ -7,4 +7,6 @@
 
 body {
   padding-top: 65px;
+  overflow-x: hidden;
+  width: 100vw;
 }
