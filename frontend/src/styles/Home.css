@@ -1,0 +1,22 @@
+
+.Ads {
+  text-align: center;
+}
+.ProductBrand{
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  gap: 20px;
+}
+.Brand{
+  display: flex;
+  flex-direction: row;
+  overflow-x:auto;
+  overflow-y: hidden;
+  width: 100%;
+}
+
+.card1{
+  color: aqua;
+}
+

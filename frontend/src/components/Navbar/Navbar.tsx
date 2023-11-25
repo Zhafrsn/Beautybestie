@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../../styles/Navbar.css";
 import { Navitems } from "./Navitems";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import logo from '../../assets/Logo.PNG';
 import { Sidebar } from "components/Sidebar";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
@@ -31,7 +30,7 @@ export const Navbar: React.FC = () => {
       {windowWidth <= 1024 ? (
         <div className="navbar__mobile">
           <div className="navbar__web-title">
-            <img src={logo} className='navbar__logo-image' alt='logo'/>
+            <img src={'images/logo.png'} className='navbar__logo-image' alt='logo'/>
             <span className="navbar__title">eautyBestie</span>
           </div>
           <button className="navbar__menu-button" onClick={toggleSidebar}>
