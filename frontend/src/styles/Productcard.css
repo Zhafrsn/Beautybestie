@@ -1,0 +1,14 @@
+.card {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    text-align: center;
+    flex-basis: calc(33.33% - 32px);
+  }
+
+  .card img {
+    max-width: 100%;
+    border-radius: 4px;
+  }
