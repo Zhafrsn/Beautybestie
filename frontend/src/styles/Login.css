@@ -38,13 +38,31 @@
   background-color: #0056b3;
 }
 
-.logen {
+.login-text {
   text-align: center;
   color: #eca4b0;
-  background-color: #eca4b0;
 }
 
 h2 {
   color: #eca4b0;
   text-align: center;
+}
+
+.login-option-comtainer {
+  text-align: center;
+}
+
+.login-option-card {
+  border: 1px solid;
+  padding: 4px;
+}
+
+.login-option {
+  float: left;
+  text-align: center;
+}
+
+.option-text {
+  padding-left: 6px;
+  position: absolute;
 }
