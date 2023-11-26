@@ -1,9 +1,9 @@
 import React from 'react';
 import './styles/Global.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Home } from './pages/Home/Home';
-import { Login } from './pages/LoginPage/Login';
-import { Register } from './pages/RegisterPage';
+import { Home } from './pages/Home';
+import { Login } from './components/Login/Login';
+import { Register } from './components/Register';
 export const App: React.FC = () => {
   return (
     <>

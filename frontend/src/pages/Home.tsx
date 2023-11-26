@@ -1,7 +1,7 @@
 import Carousel from 'components/Ads/Ads';
 import { MainLayout } from 'layout';
 // import '../styles/Home.css';
-import Card from '../../components/Brand/Brand';
+import Card from '../components/Brand/Brand';
 
 export const Home: React.FC = () => {
   const adImages = ['images/image1.jpg', 'images/image2.jpg', 'images/image3.jpg', 'images/image4.jpg'];
