@@ -43,18 +43,18 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
               </button>
             ))}
             <button
-              onClick={() => window.location.href = "/cart"}
-              className="sidebar__button"
-            >
-              <FontAwesomeIcon icon={faShoppingCart} className="sidebar__icons"/> 
-              Cart
-            </button>
-            <button
               onClick={() => window.location.href = "/wishlist"}
               className="sidebar__button"
             >
               <FontAwesomeIcon icon={faHeart} className="sidebar__icons"/> 
               Wishlist
+            </button>
+            <button
+              onClick={() => window.location.href = "/cart"}
+              className="sidebar__button"
+            >
+              <FontAwesomeIcon icon={faShoppingCart} className="sidebar__icons"/> 
+              Cart
             </button>
           </div>
         <div className="sidebar-login">

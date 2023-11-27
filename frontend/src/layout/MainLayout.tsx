@@ -3,6 +3,7 @@ import React from "react";
 import { Navbar } from "../components/Navbar";
 import { Sidebar } from "../components/Sidebar";
 import { Footer } from "../components/Footer";
+import { ChatPopUp } from "components/Chat/ChatPopUp";
 
 export const MainLayout: React.FC<{children: React.ReactNode}> = ({children}) => {
   return (
@@ -11,6 +12,7 @@ export const MainLayout: React.FC<{children: React.ReactNode}> = ({children}) =>
       <Navbar />
         <div>
           {children}
+          <ChatPopUp/>
         </div>
       <Footer />
     </div>

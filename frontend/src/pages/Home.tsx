@@ -1,15 +1,15 @@
-import Carousel from "components/Ads/Ads";
+// import Carousel from "components/Ads/Ads";
 import { MainLayout } from "layout";
 import '../styles/Home.css';
 import Card from '../components/Brand/Brand';
 
 export const Home: React.FC = () => {
-  const adImages = [
-    'images/image1.jpg',
-    'images/image2.jpg',
-    'images/image3.jpg',
-    'images/image4.jpg'
-  ];
+  // const adImages = [
+  //   'images/image1.jpg',
+  //   'images/image2.jpg',
+  //   'images/image3.jpg',
+  //   'images/image4.jpg'
+  // ];
   const brandImage = [
     { logo: 'images/logoSomethic.png' },
     { logo: 'images/logoWardah.png' },
@@ -19,9 +19,9 @@ export const Home: React.FC = () => {
 
   return (
       <MainLayout>
-        <div className="Ads">
+        {/* <div className="Ads">
           <Carousel images={adImages} />
-        </div>
+        </div> */}
         <div className="ProductBrand">
           <h1>PRODUCT BRANDS</h1>
           <div className="Brand">
