@@ -6,7 +6,7 @@ import { faInstagram, faTwitter, faFacebook, faWhatsapp } from '@fortawesome/fre
 export const Footer: React.FC = () => {
   return (
     <footer className="footer">
-      <section className="footer__item">
+      <div className="footer__items">
         <div className="footer__web-title">
           <img src={'images/logo.png'} className="footer__logo-image" alt="logo" />
           <p>BeautyBestie</p>
@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
           <p>cs@beautybestie.com</p>
           <p>Beauty Store</p>
         </div>
-        <section className="footer__follow-us">
+        <div className="footer__follow-us">
           <h3>Follow Us</h3>
           <div className="footer__follow-us-icons">
             <FontAwesomeIcon icon={faInstagram} />
@@ -32,12 +32,12 @@ export const Footer: React.FC = () => {
             <FontAwesomeIcon icon={faWhatsapp} />
           </div>
           <p>Learn more about beautybestie</p>
-        </section>
-      </section>
+        </div>
+      </div>
       <hr className="footer-divider" />
-      <section className="footer__copyright-text">
+      <div className="footer__copyright-text">
         <p>Copyright &copy; 2023 BeautyBestie</p>
-      </section>
+      </div>
     </footer>
   );
 };
