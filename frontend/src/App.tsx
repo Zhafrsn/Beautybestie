@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { Products } from 'pages';
 import WishlistPage from './pages/Wishlist';
+import { Cart } from './pages/Cart Pages/Cart';
 
 
 export const App: React.FC = () => {
@@ -14,6 +15,7 @@ export const App: React.FC = () => {
           <Route path='/' element={<Home />} />
           <Route path='/products' element={<Products/>} />
           <Route path="/wishlist" element={<WishlistPage/>} />
+          <Route path="/Cart" element={<Cart />} />
         </Routes>
       </Router>
     </>
