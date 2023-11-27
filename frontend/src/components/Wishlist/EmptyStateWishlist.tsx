@@ -11,7 +11,7 @@ export const EmptyStateWishlist: React.FC = () => {
       </section>
       <section className="wishlist__kontainer-text">
       <div><b>Your Wishlist is Still Empty</b></div>
-      <p className="wishlist__text">Let's start adding your dream products here!</p>
+      <p className="wishlist__text">{"Let's start adding your dream products here!"}</p>
       </section>
     </div>
   );
