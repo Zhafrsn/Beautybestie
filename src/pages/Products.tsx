@@ -1,44 +1,64 @@
 import { MainLayout } from 'layout';
 import '../styles/Products.css';
 import { Productcard } from '../components/productcard';
+import { Dropdown } from '../components/DropDown/DropDown';
 
 export const Products: React.FC = () => {
   const cardData = [
     {
-      title: 'Card 1',
-      description: 'Description for Card 1',
-      imageUrl: 'https://example.com/card1.jpg',
+      title: 'Bright Stuff',
+      category: 'Face Wash',
+      Price: 'IDR 19.000',
+      imageUrl: 'images/FaceWash1.png',
     },
     {
-      title: 'Card 2',
-      description: 'Description for Card 2',
-      imageUrl: 'https://example.com/card2.jpg',
+      title: 'Bright Stuff',
+      category: 'Face Wash',
+      Price: 'IDR 19.000',
+      imageUrl: 'images/FaceWash2.png',
     },
     {
-      title: 'Card 3',
-      description: 'Description for Card 3',
-      imageUrl: 'https://example.com/card3.jpg',
+      title: 'Bright Stuff',
+      category: 'Face Wash',
+      Price: 'IDR 19.000',
+      imageUrl: 'images/FaceWash3.png',
     },
     {
-      title: 'Card 4',
-      description: 'Description for Card 4',
-      imageUrl: 'https://example.com/card4.jpg',
+      title: 'Bright Stuff',
+      category: 'Face Wash',
+      Price: 'IDR 19.000',
+      imageUrl: 'images/FaceWash4.png',
     },
     {
-      title: 'Card 5',
-      description: 'Description for Card 5',
-      imageUrl: 'https://example.com/card5.jpg',
+      title: 'Bright Stuff',
+      category: 'Face Wash',
+      Price: 'IDR 19.000',
+      imageUrl: 'images/FaceWash5.png',
     },
     {
-      title: 'Face Wash 6',
+      title: 'Bright Stuff',
+      category: 'Face Wash',
       Price: 'IDR 19.000',
       imageUrl: 'images/FaceWash6.png',
     },
   ];
+
+  const Option1 = ['All', 'Face Wash', 'Moisturizer', 'Sunscreen'];
+  const Option2 = ['All', 'Lowest Price', 'Highest Price'];
   return (
     <MainLayout>
       <div className="Products-Judul">
-      <h1>Our Products</h1>
+        <h1>Our Products</h1>
+      </div>
+      <div className='Products-Dropdown'>
+        <div className='products__dd-category'>
+          <p>Category :</p>
+          <Dropdown options={Option1} />
+        </div>
+        <div className='products__dd-category'>
+          <p>Sort By :</p>
+          <Dropdown options={Option2} />
+        </div>
       </div>
       <div className="Products-Card-Container">
         {cardData.map((card, index) => (

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import '../../styles/ProductsDropdown.css';
+import '../../styles/Dropdown.css';
 
 interface DropdownProps {
   options: string[];
 }
 
-export const ProductsDropdown: React.FC<DropdownProps> = ({ options }) => {
+export const Dropdown: React.FC<DropdownProps> = ({ options }) => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
 
