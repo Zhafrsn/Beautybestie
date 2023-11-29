@@ -6,7 +6,7 @@ import '../../styles/Navbar.css';
 
 export const navItems = [
   { label: 'Home', href: '/', icon: <FontAwesomeIcon icon={faHome} /> },
-  { label: 'Product', href: '/product', icon: <FontAwesomeIcon icon={faCube} /> },
+  { label: 'Products', href: '/products', icon: <FontAwesomeIcon icon={faCube} /> },
   { label: 'About Us', href: '/about-us', icon: <FontAwesomeIcon icon={faInfoCircle} /> },
 ];
 
