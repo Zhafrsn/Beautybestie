@@ -30,7 +30,7 @@ export const Products: React.FC = () => {
       imageUrl: 'https://example.com/card5.jpg',
     },
     {
-      title: 'Card 3',
+      title: 'Card 6',
       description: 'Description for Card 6',
       imageUrl: 'https://example.com/card6.jpg',
     },
@@ -38,7 +38,7 @@ export const Products: React.FC = () => {
   return (
     <MainLayout>
       <h1 className="Products-Judul">Our Products</h1>
-      <div className="card-container">
+      <div className="Products-Card-Container">
         {cardData.map((card, index) => (
           <Productcard key={index} {...card} />
         ))}
