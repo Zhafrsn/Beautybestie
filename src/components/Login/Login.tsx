@@ -2,6 +2,8 @@ import '../../styles/Login.css';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from "../../firebase"
 
 export const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -9,6 +11,14 @@ export const Login: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log(userCredential)
+        alert("adalah bisa");
+      }).catch((error) => {
+        console.log(error)
+        alert("yakali bisa");
+      })
     console.log('Email:', email);
     console.log('Password:', password);
   };
