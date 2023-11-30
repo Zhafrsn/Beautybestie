@@ -5,18 +5,20 @@
 .ProductBrand{
   display: flex;
   flex-direction: column;
-  margin: 30px;
-  gap: 20px;
+  margin-left: 30px;
+  padding: 10px;
+}
+.ProductBrand h1{
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 10px;
+  padding: 10px;
 }
 .Brand{
   display: flex;
-  flex-direction: row;
-  overflow-x:auto;
-  overflow-y: hidden;
-  width: 100%;
+  overflow:auto;
 }
-
-.card1{
-  color: aqua;
+.Brand::-webkit-scrollbar {
+  display: none;
 }
 
