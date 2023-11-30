@@ -11,6 +11,78 @@
     font-size: 32px;
 }
 
+/* Wishlist Card */
+.wishlist__all {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 90px 30px 90px;
+    gap: 20px;
+}
+
+.wishlist__kontainer2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0px;
+    /* padding-bottom: 10px; */
+}
+
+.wishlist__total {
+    font-size: 22px;
+    font-weight: 600;
+    /* color: #7E797B; */
+
+}
+
+.wishlist__sortby {
+    font-size: 18px;
+    font-weight: bold;
+    color: #7E797B;
+}
+
+.wishlist__product-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* gap: 50px; */
+}
+
+.wishlist__product-container2 {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.wishlist__detail-product {
+    font-size: 16px;
+}
+
+.wishlist__idr {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.wishlist__action {
+    /* margin-left: 5px; */
+}
+
+.wishlist__addtocart {
+    color: white;
+    background-color: #ECA4B0;
+    padding: 5px;
+    margin-right: 10px;
+    border: none;
+}
+
+.wishlist__buy {
+    color: #ECA4B0;
+    background-color: white;
+    padding: 3px 30px;
+    margin-right: 10px;
+    border-color: #ECA4B0;
+}
+
+/* empty state wishlist */
 .wishlist__kontainer-text {
     display: flex;
     flex-direction: column;
