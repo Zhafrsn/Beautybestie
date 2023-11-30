@@ -11,18 +11,6 @@
   background-color: #edf5ff;
   border-radius: 9px;
 }
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  margin: 16px;
-  text-align: left;
-  flex-basis: calc(33.33% - 32px);
-  align-items: center;
-}
-.Products-Card:hover {
-  background-color: #edf5ff;
-  border-radius: 9px;
-}
 
 .productCard-heart {
   display: flex;
@@ -35,13 +23,6 @@
     color: red;
 }
 
-
-.productsCard-detail {
-.productCard-heart:hover{
-    color: red;
-}
-
-
 .productsCard-detail {
   display: flex;
   flex-direction: column;
@@ -51,23 +32,13 @@
   width: 255px;
   height: 255px;
 }
-.ProductsCard-img {
-  width: 255px;
-  height: 255px;
-}
-
-.productCard-title {
-  text-align: left;
 .productCard-title {
   text-align: left;
   color: #eca4b0;
   font-size: 17px;
   padding-bottom: 5px;
-  font-size: 17px;
-  padding-bottom: 5px;
 }
 
-.productCard-category {
 .productCard-category {
   text-align: left;
   color: #999798;
@@ -84,18 +55,13 @@
 }
 
 .ProductsCard-btn {
-.ProductsCard-btn {
   display: flex;
   align-items: center;
-  background-color: #eca4b0;
   background-color: #eca4b0;
   border-radius: 5px;
   border: none;
   padding: 7px 40px;
   width: max-content;
-  padding: 7px 40px;
-  width: max-content;
   color: white;
   gap: 8px;
 }
-
