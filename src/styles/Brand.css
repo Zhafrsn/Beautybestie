@@ -27,18 +27,8 @@
 }
 
 .logoBrand {
-  width: 350px;
+  width: 300px;
   height: auto;
   object-fit:contain;
   color: #ffffffff;
-}
-
-@media screen and (max-width: 600px) {
-  .cardBrand {
-    width: 80%;
-  }
-
-  .logoBrand {
-    max-width: 80%;
-  }
 }
