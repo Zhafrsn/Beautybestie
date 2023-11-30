@@ -1,15 +1,35 @@
 .Products-Card {
     display: flex;
     flex-direction: column;
-    border: 1px solid #ccc;
-    border-radius: 8px;
     padding: 16px;
     margin: 16px;
-    text-align: center;
+    text-align:left;
     flex-basis: calc(33.33% - 32px);
+    
+  }
+  .Products-Card:hover {
+    background-color: #EDF5FF;
+    border-radius: 9px;
   }
 
-  .card img {
-    max-width: 100%;
-    border-radius: 4px;
+  .productCard-heart{
+    display: flex;
+    /* position:; */
+    right: 10px;
   }
+  .ProductsCard-img {
+    width: 255px;
+    height: 255px;
+  }
+
+.productCard-title{
+  text-align:left;
+  color: #eca4b0;
+  font-size: 20px;
+}
+
+.productCard-category{
+  text-align: left;
+  color: #999798;
+  font-size: 17px;
+}

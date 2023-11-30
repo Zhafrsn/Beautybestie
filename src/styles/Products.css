@@ -1,8 +1,32 @@
 .Products-Card-Container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    max-width: 900px;
-    margin: 0 auto;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.Products-Judul {
+  display: flex;
+  padding: 70px;
+  justify-content: center;
+  font-size:30px;
+  font-weight: bolder;
+  color: #eca4b0;
+}
+
+.Products-Dropdown {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  padding-bottom: 20px;
+} 
+
+.products__dd-category,
+.products__dd-sort-by{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}

@@ -30,14 +30,16 @@ export const Products: React.FC = () => {
       imageUrl: 'https://example.com/card5.jpg',
     },
     {
-      title: 'Card 6',
-      description: 'Description for Card 6',
-      imageUrl: 'https://example.com/card6.jpg',
+      title: 'Face Wash 6',
+      Price: 'IDR 19.000',
+      imageUrl: 'images/FaceWash6.png',
     },
   ];
   return (
     <MainLayout>
-      <h1 className="Products-Judul">Our Products</h1>
+      <div className="Products-Judul">
+      <h1>Our Products</h1>
+      </div>
       <div className="Products-Card-Container">
         {cardData.map((card, index) => (
           <Productcard key={index} {...card} />
