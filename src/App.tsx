@@ -7,6 +7,7 @@ import WishlistPage from './pages/Wishlist';
 import { Cart } from './components/Cart Pages/Cart';
 import { Login } from './components/Login/Login';
 import { Register } from './components/Register/Register';
+import AboutUs from './pages/AboutUs';
 
 export const App: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ export const App: React.FC = () => {
           <Route path="/Cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/aboutUs" element={<AboutUs />} />
         </Routes>
       </Router>
     </>
