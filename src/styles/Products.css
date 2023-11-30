@@ -8,11 +8,14 @@
   padding-bottom: 20px;
 }
 
+.productsPage-container{
+  z-index: 0;
+}
 .Products-Judul {
   display: flex;
   padding: 60px;
   justify-content: center;
-  font-size:30px;
+  font-size: 30px;
   font-weight: bolder;
   color: #eca4b0;
 }
@@ -23,14 +26,13 @@
   gap: 170px;
   padding-bottom: 100px;
   width: 100%;
-} 
+}
 
-.products-dd-category{
+.products-dd-category {
   position: absolute;
   right: 58%;
 }
-.products-dd-sortby{
+.products-dd-sortby {
   position: absolute;
   left: 61%;
 }
-
