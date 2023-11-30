@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Navbar } from "../Navbar/Navbar";
 import '../../styles/Register.css';
 
 export const Register: React.FC = () => {
@@ -10,7 +11,6 @@ export const Register: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
   };
 
   return (
