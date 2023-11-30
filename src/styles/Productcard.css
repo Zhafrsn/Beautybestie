@@ -1,11 +1,9 @@
 .Products-Card {
     display: flex;
     flex-direction: column;
-    border: 1px solid #ccc;
-    border-radius: 8px;
     padding: 16px;
     margin: 16px;
-    text-align: center;
+    text-align:left;
     flex-basis: calc(33.33% - 32px);
   }
 
