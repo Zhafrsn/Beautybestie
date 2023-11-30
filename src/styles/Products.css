@@ -27,14 +27,13 @@
   gap: 170px;
   padding-bottom: 100px;
   width: 100%;
-} 
+}
 
-.products-dd-category{
+.products-dd-category {
   position: absolute;
   right: 58%;
 }
-.products-dd-sortby{
+.products-dd-sortby {
   position: absolute;
   left: 61%;
 }
-
