@@ -4,12 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from "../../firebase"
+import { AuthDetails } from "../AuthUser/AuthDetails"
 
 export const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSingIn = (e: React.FormEvent) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -24,7 +25,7 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <form className="login-form" onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSingIn}>
       <h2 className="login-text">Login</h2>
       <label htmlFor="email">Email</label>
       <input type="email" id="email" name="email" value={email} onChange={e => setEmail(e.target.value)} required />
