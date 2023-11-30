@@ -7,7 +7,7 @@ import '../../styles/Navbar.css';
 export const navItems = [
   { label: 'Home', href: '/', icon: <FontAwesomeIcon icon={faHome} /> },
   { label: 'Products', href: '/products', icon: <FontAwesomeIcon icon={faCube} /> },
-  { label: 'About Us', href: '/about-us', icon: <FontAwesomeIcon icon={faInfoCircle} /> },
+  { label: 'About Us', href: '/aboutUs', icon: <FontAwesomeIcon icon={faInfoCircle} /> },
 ];
 
 export const Navitems: React.FC = () => {
