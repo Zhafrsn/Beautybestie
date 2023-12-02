@@ -109,6 +109,7 @@
   border-radius: 5px;
   width: 60%;
   justify-content: center;
+  align-items: center;
 }
 
 .login__google-logo{
@@ -131,8 +132,62 @@
   text-decoration: none;
 }
 
-/* @media screen and (max-width: 768px) {
-  .login-form{
-    width: 80%;
+@media screen and (max-width: 602px) {
+  .login-container{
+    padding: 30px;
   }
-} */
+  .login-form{
+    gap: 16px;
+    padding: 40px;
+  }
+  .login-label, 
+  .login__forgot-pw{
+    font-size: 12px;
+  }
+  .login-text{
+    font-size: 30px;
+  }
+  .login-button{
+    padding: 10px;
+  }
+  .login__btn-login{
+    font-size: 16px;
+  }
+  .login__wrapper{
+    gap: 16px;
+  }
+  .login__btn-login-google{
+    width: 75%;
+    font-size: 12px;
+    .login__google-logo{
+      width: 18px;
+      height: 18px;
+    }
+  }
+  .login__to-signup{
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .login-form{
+    width: 100%;
+    padding: 30px;
+  }
+  .login-text{
+    font-size: 26px;
+  }
+  .login-button{
+    padding: 8px;
+  }
+  .login__btn-login{
+    width: 50%;
+  }
+  .login__btn-login-google{
+    width: 90%;
+  }
+  .login__to-signup{
+    font-size: 10px;
+  }
+}
