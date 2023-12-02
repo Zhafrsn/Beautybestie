@@ -2,14 +2,14 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 50px;
+  height: 100%;
 }
 
 .signup-form{
   display: flex;
   flex-direction: column;
-  width: 50%;
   padding: 40px 90px;
+  margin: 50px;
   justify-content: center;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -119,8 +119,9 @@
   font-size: 16px;
   border: 1px solid #eca4b0;
   border-radius: 5px;
-  width: 50%;
+  width: 60%;
   justify-content: center;
+  align-items: center;
 }
 
 .signup__google-logo{
@@ -141,4 +142,71 @@
   color: #eca4b0;
   font-weight: bold;
   text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .signup-form{
+    padding: 40px 50px;
+  }
+  .signup-header{
+    font-size: 30px;
+  }
+  .signup-label{
+    font-size: 14px;
+  }
+  .signup-button{
+    padding: 10px;
+  }
+  .signup-checkbox{
+    font-size: 10px;
+    align-items: start;
+  }
+  .signup__wrapper{
+    gap: 16px;
+  }
+  .signup__to-login{
+    font-size: 12px;
+  }
+  .signup__btn-signup{
+    font-size: 15px;
+  }
+  .signup__btn-signup-google{
+    width: 70%;
+    font-size: 12px;
+  }
+  .signup__google-logo{
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .signup-form{
+    margin: 40px;
+    padding: 30px;
+  }
+  .signup-header{
+    font-size: 25px;
+  }
+  .signup__btn-signup{
+    font-size: 12px;
+    width: 40%;
+  }
+  .signup-button{
+    padding: 8px;
+  }
+  .signup-or, .signup-label{
+    font-size: 12px;
+  }
+  .signup__btn-signup-google{
+    font-size: 10px;
+    width: 90%;
+  }
+  .signup__google-logo{
+    width: 16px;
+    height: 16px;
+  }
+  .signup__to-login{
+    font-size: 10px;
+  }
 }
