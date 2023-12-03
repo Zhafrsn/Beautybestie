@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { Navbar } from "../Navbar/Navbar";
 import '../../styles/Register.css';
 import { Sidebar } from 'components/Sidebar';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from "../../firebase"
 
 export const Register: React.FC = () => {
   const [fullName, setFullName] = useState('');
@@ -34,6 +36,19 @@ export const Register: React.FC = () => {
       setChecked2(isChecked);
     }
   };  
+const handleSingUp = (e: React.FormEvent) => {
+  e.preventDefault();
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log(userCredential)
+      alert("adalah bisa");
+    }).catch((error) => {
+      console.log(error)
+      alert("yakali bisa");
+    })
+  console.log('Email:', email);
+  console.log('Password:', password);
+};
 
   return (
     <><Sidebar contentId="side-bar" isOpen={false} toggleSidebar={() => {}} />

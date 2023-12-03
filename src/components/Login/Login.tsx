@@ -1,22 +1,23 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable no-console */
 import '../../styles/Login.css';
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from "../../firebase"
 import { Navbar } from 'components/Navbar';
 import { Sidebar } from 'components/Sidebar';
+import { useNavigate } from 'react-router-dom';
 
 export const Login: React.FC = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSingIn = (e: React.FormEvent) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential)
         alert("adalah bisa");
+        navigate('/');
       }).catch((error) => {
         console.log(error)
         alert("yakali bisa");
@@ -30,7 +31,7 @@ export const Login: React.FC = () => {
       <Sidebar contentId="side-bar" isOpen={false} toggleSidebar={() => {}} />
       <Navbar />
       <div className='login-container'>
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form className="login-form" onSubmit={handleSingIn}>
           <p className="login-text">Login</p>
           <div className='login__items'>
             <div className='login__email-container'>

@@ -1,4 +1,4 @@
-.login-container{
+.login-container {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -7,6 +7,8 @@
 
 .login-form {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   padding: 50px;
   justify-content: center;
@@ -22,11 +24,11 @@
 .login-text {
   text-align: center;
   color: #eca4b0;
-  font-weight:  bolder;
+  font-weight: bolder;
   font-size: 40px;
 }
 
-.login__items{
+.login__items {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,7 +42,7 @@
   font-weight: bold;
 }
 
-.login-button{
+.login-button {
   display: flex;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -49,11 +51,12 @@
   padding: 15px 10px;
 }
 
-.login-email, .login-password{
+.login-email,
+.login-password {
   border: none;
   background-color: none;
   outline: none;
-  color:black;
+  color: black;
   width: 100%;
 }
 
@@ -64,20 +67,20 @@
 }
 
 .login__pw-container,
-.login__email-container{
+.login__email-container {
   display: flex;
   flex-direction: column;
   gap: 2px;
   width: 100%;
 }
 
-.login__forgot-pw{
+.login__forgot-pw {
   color: #eca4b0;
   font-size: 14px;
   text-align: right;
 }
 
-.login__wrapper{
+.login__wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,7 +115,7 @@
   align-items: center;
 }
 
-.login__google-logo{
+.login__google-logo {
   width: 24px;
   height: 24px;
 }
@@ -121,73 +124,73 @@
   color: #999798;
 }
 
-.login__to-signup{
+.login__to-signup {
   color: #999798;
   font-size: 14px;
 }
 
-.login__click-here{
+.login__click-here {
   color: #eca4b0;
   font-weight: bold;
   text-decoration: none;
 }
 
 @media screen and (max-width: 602px) {
-  .login-container{
+  .login-container {
     padding: 30px;
   }
-  .login-form{
+  .login-form {
     gap: 16px;
     padding: 40px;
   }
-  .login-label, 
-  .login__forgot-pw{
+  .login-label,
+  .login__forgot-pw {
     font-size: 12px;
   }
-  .login-text{
+  .login-text {
     font-size: 30px;
   }
-  .login-button{
+  .login-button {
     padding: 10px;
   }
-  .login__btn-login{
+  .login__btn-login {
     font-size: 16px;
   }
-  .login__wrapper{
+  .login__wrapper {
     gap: 16px;
   }
-  .login__btn-login-google{
+  .login__btn-login-google {
     width: 75%;
     font-size: 12px;
-    .login__google-logo{
+    .login__google-logo {
       width: 18px;
       height: 18px;
     }
   }
-  .login__to-signup{
+  .login__to-signup {
     font-size: 12px;
     text-align: center;
   }
 }
 
 @media screen and (max-width: 374px) {
-  .login-form{
+  .login-form {
     width: 100%;
     padding: 30px;
   }
-  .login-text{
+  .login-text {
     font-size: 26px;
   }
-  .login-button{
+  .login-button {
     padding: 8px;
   }
-  .login__btn-login{
+  .login__btn-login {
     width: 50%;
   }
-  .login__btn-login-google{
+  .login__btn-login-google {
     width: 90%;
   }
-  .login__to-signup{
+  .login__to-signup {
     font-size: 10px;
   }
 }

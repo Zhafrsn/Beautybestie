@@ -2,7 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCube, faHeart, faHome, faInfoCircle, faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { signOut } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from "../../firebase"
 import '../../styles/Navbar.css';
+
 
 export const navItems = [
   { label: 'Home', href: '/', icon: <FontAwesomeIcon icon={faHome} /> },
@@ -11,6 +15,8 @@ export const navItems = [
 ];
 
 export const Navitems: React.FC = () => {
+  const [user] = useAuthState(auth);
+
   return (
     <nav className="navbar">
       <div className="navbar__web-title">
@@ -35,12 +41,23 @@ export const Navitems: React.FC = () => {
         <NavLink to="/cart" className="nav-link">
           <FontAwesomeIcon icon={faShoppingCart} />
         </NavLink>
-        <div className="navbar__login-buttons">
-          <a href="/login" className="navbar__login-button">
-            <span className="navbar__login-text">Login</span>
-          </a>
-        </div>
+        {user ? (
+          <div className="navbar__user-info">
+            <span className="navbar__user-email">{user.email}</span>
+            {/* <button onClick={() => signOut(auth)} className="navbar__logout-button">
+              Logout
+            </button> */}
+          </div>
+        ) : (
+          <div className="navbar__login-buttons">
+            <a href="/login" className="navbar__login-button">
+              <span className="navbar__login-text">Login</span>
+            </a>
+          </div>
+        )}
       </div>
     </nav>
   );
 };
+
+export default Navitems;
