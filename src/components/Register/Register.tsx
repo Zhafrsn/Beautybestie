@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState } from 'react';
@@ -6,7 +8,7 @@ import '../../styles/Register.css';
 import { Sidebar } from 'components/Sidebar';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import { auth } from "../../firebase"
+import { auth } from "../../firebase/config"
 import { useNavigate } from 'react-router-dom';
 
 export const Register: React.FC = () => {

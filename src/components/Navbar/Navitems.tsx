@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCube, faHeart, faHome, faInfoCircle, faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from "../../firebase"
+import { auth } from "../../firebase/config"
 import '../../styles/Navbar.css';
 
 

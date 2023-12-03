@@ -18,15 +18,19 @@
     z-index: -1;
     flex-direction: column;
     width: 100%;
-    height: 50%;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
 .aboutus__text {
-    position: absolute;
-    margin-top: 130px;
-    margin-left: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.25);
 }
 
 .aboutus__text1 {
