@@ -44,7 +44,6 @@ export const Products: React.FC = () => {
   ];
 
   const Option1 = ['All', 'Face Wash', 'Toner', 'Serum', 'Mask', 'Moisturizer', 'Sunscreen', 'Lip Care'];
-  const Option1 = ['All', 'Face Wash', 'Toner', 'Serum', 'Mask', 'Moisturizer', 'Sunscreen', 'Lip Care'];
   const Option2 = ['All', 'Lowest Price', 'Highest Price'];
   return (
     <MainLayout>
