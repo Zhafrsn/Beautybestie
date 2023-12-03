@@ -10,7 +10,13 @@
   border-radius: 10px;
   margin: 10px; 
   text-align: center;
- }
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.cardBrand:hover{
+  transform: scale(1.05);
+}
+
 
 .cardBrand:nth-child(1) {
   background-image: linear-gradient(rgba(231, 75, 233, 1), rgba(227, 156, 242, 0)) ; 
