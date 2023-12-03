@@ -3,8 +3,10 @@ import { MainLayout } from "layout";
 import '../styles/Home.css';
 import Brand from '../components/Brand/Brand';
 import { BestSeller } from '../components/Best Seller/BestSeller';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { Products } from "./Products";
 import Category from '../components/Category/Category';
+import AboutUsComp from "components/AboutUs/AboutUsComp";
 
 export const Home: React.FC = () => {
   const adImages = [
@@ -69,6 +71,12 @@ export const Home: React.FC = () => {
       imageUrl: 'images/FaceWash6.png',
     },
   ];
+  
+  const navigate = useNavigate();
+
+  const navigateToProducts = () => {
+    navigate('/Products'); // Alamat URL dari halaman produk
+  };
 
   return (
       <MainLayout>
@@ -77,7 +85,7 @@ export const Home: React.FC = () => {
         </div>
         <div className="BestSeller">
           <h1>BEST SELLER</h1>
-          <button onClick={Products}>See All Product</button>
+          <button onClick={navigateToProducts}>See All Product</button>
         </div>
         <div className="BestSellerCard">
         {BestSellerData.map((card, index) => (
@@ -100,25 +108,9 @@ export const Home: React.FC = () => {
             ))}
           </div>
         </div>
-        <div className='about-us__contaienr'>
-        <div className='aboutus__title'>
-          <h1>ABOUT US</h1>
-        </div>
-        <div className='aboutus__content'>
-          <img src='images/aboutus.png'
-             alt="logo"/>
-          <div className='aboutus__text'>
-            <div className='aboutus__text1'>
-              <p>Change Your Life With</p>
-              <p>Beauty</p>
-            </div>
-            <div className='aboutus__text2'>
-              <p>Come To Our Website Which Provides</p>
-              <p>Everything You Need</p>
-            </div>
-          </div>
-        </div>
-        </div>
+        <div className="AboutUs">
+          <AboutUsComp  />  
+        </div>    
       </MainLayout>
   );
 };
