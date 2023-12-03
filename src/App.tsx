@@ -23,7 +23,7 @@ export const App: React.FC = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/_404" />
+          <Route path="/*" element={<_404/> } />
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
