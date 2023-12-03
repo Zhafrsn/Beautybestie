@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable no-console */
 import '../../styles/Login.css';
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from "../../firebase"
 import { Navbar } from 'components/Navbar';
 import { Sidebar } from 'components/Sidebar';
-import { AuthDetails } from "../AuthUser/AuthDetails"
+import { useNavigate } from 'react-router-dom';
 
 export const Login: React.FC = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -18,6 +17,7 @@ export const Login: React.FC = () => {
       .then((userCredential) => {
         console.log(userCredential)
         alert("adalah bisa");
+        navigate('/');
       }).catch((error) => {
         console.log(error)
         alert("yakali bisa");

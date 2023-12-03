@@ -8,11 +8,11 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from "../../firebase"
 
 export const Register: React.FC = () => {
-  // const [fullName, setFullName] = useState('');
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
-  // const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
-  // const [confirmPassword, setConfirmPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
