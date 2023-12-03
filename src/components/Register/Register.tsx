@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import { Navbar } from "../Navbar/Navbar";
 import '../../styles/Register.css';
 import { Sidebar } from 'components/Sidebar';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { auth } from "../../firebase"
 
 export const Register: React.FC = () => {
@@ -16,6 +17,7 @@ export const Register: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    handleSingUp(e);
   };
 
   const [checked, setChecked] = useState(true);
@@ -35,19 +37,38 @@ export const Register: React.FC = () => {
     } else if (event.target.id === "myCheckbox2") {
       setChecked2(isChecked);
     }
-  };  
-const handleSingUp = (e: React.FormEvent) => {
-  e.preventDefault();
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      console.log(userCredential)
-      alert("adalah bisa");
-    }).catch((error) => {
-      console.log(error)
-      alert("yakali bisa");
-    })
-  console.log('Email:', email);
-  console.log('Password:', password);
+  };
+  const handleSingUp = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      // Password and confirm password do not match
+      alert('Password and confirm password do not match');
+      return;
+    }
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      await updateProfile(user, {
+      displayName: fullName,
+    });
+
+    // Save additional user information to Firestore
+    const db = getFirestore();
+    await addDoc(collection(db, 'userData'), {
+      uid: user.uid,
+      fullName: fullName,
+      phoneNumber: phoneNumber,
+      // Add more fields as needed
+    });
+    console.log('Registration successful');
+    alert('Registration successful');
+  } catch (error) {
+    // Handle errors
+    console.error(error);
+    alert('Registration failed');
+  }
 };
 
   return (
