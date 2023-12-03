@@ -1,26 +1,16 @@
 import React from "react";
-import "./NotFound.css";
+import "../../styles/NotFound.css";
 
 const NotFound: React.FC = () => {
   return (
     <div className="NotFound_Wrapper">
-      <header>
+      <header className="NotFound_Title">
         <h1>404</h1>
-        <p>Page Not Found</p>
+        <p>Sorry, Page Not Found.</p>
       </header>
 
-      <section className="NotFound_Description">
-        <p>
-          Kami minta maaf, halaman yang Anda cari tidak dapat ditemukan.
-        </p>
-        <p>
-          Ini mungkin karena halaman telah dihapus, alamat URL salah, atau ada
-          kesalahan teknis.
-        </p>
-      </section>
-
       <section className="NotFound_Button">
-        <a href="/home">
+        <a href="/">
           <button>Go Home</button>
         </a>
       </section>
