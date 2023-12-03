@@ -10,6 +10,7 @@ import { Register } from './components/Register/Register';
 import AboutUs from './pages/AboutUs';
 import _404 from './pages/_404';
 import Profile from './pages/Profile';
+import History from './pages/History';
 
 
 export const App: React.FC = () => {
@@ -26,6 +27,7 @@ export const App: React.FC = () => {
           <Route path="/*" element={<_404/> } />
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/history" element={<History />} />
         </Routes>
       </Router>
     </>
