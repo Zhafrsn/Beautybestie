@@ -17,7 +17,7 @@ export const Productcard: React.FC<CardProps> = ({ title, category, Price, image
         <img src={imageUrl} alt={title} className='ProductsCard-img'/>
         <h2 className='productCard-title'>{title}</h2>
         <p className='productCard-category'>{category}</p>
-        <p>{Price}</p>
+        <p className='productCard-price'>{Price}</p>
       </div>
       <button className='ProductsCard-btn'>
         <FontAwesomeIcon icon={faCartShopping} />

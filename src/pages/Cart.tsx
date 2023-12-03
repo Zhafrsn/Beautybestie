@@ -12,7 +12,7 @@ export const Cart: React.FC = () => {
                     <hr className='Cart__line' />
                 </section>
                 {/* <EmptyCart/> */}
-                <CartCard/>
+                <CartCard title={""} price={0} quantity={0}/>
             </div>
         </MainLayout>
     )

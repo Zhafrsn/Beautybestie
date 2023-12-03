@@ -1,0 +1,51 @@
+/* Adjusted styling without Ionic components */
+
+.Notfound_Toolbar {
+  background: #97c1a9;
+  color: #fff;
+  font-weight: 900;
+  font-size: 25px;
+}
+
+.Notfound_Wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  height: 92.5vh;
+}
+
+.Notfound_Title h1 {
+  font-size: 180px;
+  font-weight: 900;
+  color: #000;
+}
+
+.Notfound_Title p {
+  font-size: 48px;
+  font-weight: 900;
+  color: #000;
+}
+
+.Notfound_Description {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 5px;
+}
+
+.Notfound_Description p {
+  font-size: 20px;
+  color: #4e4e57;
+}
+
+.Notfound_Button button {
+  font-weight: 900;
+  text-transform: none;
+  background: #508768;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
