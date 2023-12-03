@@ -3,9 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 import '../../styles/Wishlist.css';
-// export const navItems = [
-//     { label: 'Trash', href: '/', icon: <FontAwesomeIcon icon={faTrash} /> },
-//   ];
 
 // interface WishlistCardProps {
 //   title: string;
