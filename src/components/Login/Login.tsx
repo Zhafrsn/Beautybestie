@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable no-console */
 import '../../styles/Login.css';
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from "../../firebase"
+import { auth } from "../../firebase/config"
 import { Navbar } from 'components/Navbar';
 import { Sidebar } from 'components/Sidebar';
 import { useNavigate } from 'react-router-dom';
