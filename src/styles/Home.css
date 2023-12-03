@@ -4,19 +4,38 @@
 }
 .BestSeller{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   margin-left: 30px;
   padding: 10px;
 }
+.BestSeller button{
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px 20px;
+  gap: 8px;
+  margin-right: 10px;
+  border: none;
+  background-color: white;
+}
+.BestSeller button::after {
+  content: ">>";
+  margin-left: 15px;
+  size: 70px;
+  font-weight: 700;
+  
+ }
 .BestSeller h1{
   font-size: 30px;
   font-weight: 700;
   margin-top: 10px;
-  padding: 10px;
+  margin-left: 30px;
 }
 .BestSellerCard{
   display: flex;
   overflow-x:auto;
+  margin-left: 15px;
+  margin-bottom: 50px;
 }
 .BestSellerCard::-webkit-scrollbar {
   display: none;
@@ -25,14 +44,15 @@
 .ProductBrand{
   display: flex;
   flex-direction: column;
-  margin-left: 30px;
+  margin-left: 10px;
   padding: 10px;
+  margin-bottom: 70px;
 }
 .ProductBrand h1{
   font-size: 30px;
   font-weight: 700;
-  margin-top: 10px;
-  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 45px ;
 }
 .Brand{
   display: flex;
@@ -41,4 +61,72 @@
 .Brand::-webkit-scrollbar {
   display: none;
 }
+
+.Category{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  margin-top: 80px;
+  margin-bottom: 90px;
+}
+
+.Category h1{
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  padding: 40px;
+} 
+
+.CategoryImage{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.aboutus__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 90px;
+}
+
+.aboutus__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0px;
+  background-color: #ACD0D0;
+}
+
+.aboutus__content {
+  display: flex;
+  position: relative;
+  z-index: -1;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.aboutus__text {
+  position: absolute;
+  margin-top: 130px;
+  margin-left: 80px;
+  text-align: center;
+}
+
+.aboutus__text1 {
+  font-size: xxx-large;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 130px;
+}
+
+.aboutus__text2 {
+  font-size: 25px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+
 
