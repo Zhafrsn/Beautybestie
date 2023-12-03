@@ -7,6 +7,7 @@ import { Sidebar } from 'components/Sidebar';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { auth } from "../../firebase"
+import { useNavigate } from 'react-router-dom';
 
 export const Register: React.FC = () => {
   const [fullName, setFullName] = useState('');
@@ -14,6 +15,7 @@ export const Register: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,7 +65,8 @@ export const Register: React.FC = () => {
       // Add more fields as needed
     });
     console.log('Registration successful');
-    alert('Registration successful');
+      alert('Registration successful');
+      navigate('/login');
   } catch (error) {
     // Handle errors
     console.error(error);
