@@ -4,10 +4,9 @@
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  margin: 15px;
+  margin: 10px;
   padding: 30px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .Products-Card:hover {
   background-color: #EDF5FF;
