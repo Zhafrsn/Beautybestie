@@ -1,0 +1,48 @@
+/* ProfileComp CSS */
+.profileComp__container {
+    padding: 35px 1320px 35px 40px;  
+}
+
+.profileComp__container2 {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border: 2px solid #cccccc;
+    box-shadow: 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.profileComp__container2 :hover {
+    background-color: #eca4b0;
+    color: black;
+    font-weight: bold;
+    .profileComp__icon, 
+    .profileComp__icon2 {
+        color: #ffffff;
+    }
+}
+
+.profileComp__container3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 15px;
+    color: #eca4b0;
+}
+
+
+.profileComp__font {
+    color: black;
+    font-size: large;
+    text-decoration: none;
+}
+
+.profileComp__icon {
+    font-size: 20px;
+}
+
+.profileComp__icon2 {
+    font-size: 23px;
+}
+
+/* Profile Page */
