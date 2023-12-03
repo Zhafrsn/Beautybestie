@@ -1,6 +1,7 @@
 /* ProfileComp CSS */
 .profileComp__container {
-    padding: 35px 1320px 35px 40px;  
+    padding: 40px;
+    width: 20%;
 }
 
 .profileComp__container2 {
