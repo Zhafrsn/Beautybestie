@@ -12,14 +12,12 @@ interface CardProps {
 export const BestSeller: React.FC<CardProps> = ({ title, category, Price, imageUrl}) => {
   return (
     <div className='Products-Card'>
-      <div className='heart-product'>
-        <FontAwesomeIcon icon={faHeart} />
-      </div>
+      <FontAwesomeIcon icon={faHeart} className='productCard-heart'/>
       <div className='productsCard-detail'>
         <img src={imageUrl} alt={title} className='ProductsCard-img'/>
         <h2 className='productCard-title'>{title}</h2>
         <p className='productCard-category'>{category}</p>
-        <p>{Price}</p>
+        <p className='productCard-price'>{Price}</p>
       </div>
       <button className='ProductsCard-btn'>
         <FontAwesomeIcon icon={faCartShopping} />
