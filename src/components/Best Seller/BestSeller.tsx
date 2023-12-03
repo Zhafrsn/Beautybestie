@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Productcard.css'
+import '../../styles/BestSeller.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,7 +9,7 @@ interface CardProps {
   Price: string;
   imageUrl: string;
 }
-export const Productcard: React.FC<CardProps> = ({ title, category, Price, imageUrl}) => {
+export const BestSeller: React.FC<CardProps> = ({ title, category, Price, imageUrl}) => {
   return (
     <div className='Products-Card'>
       <FontAwesomeIcon icon={faHeart} className='productCard-heart'/>

@@ -8,6 +8,9 @@ import { Cart } from './pages/Cart';
 import { Login } from './components/Login/Login';
 import { Register } from './components/Register/Register';
 import AboutUs from './pages/AboutUs';
+import _404 from './pages/_404';
+import Profile from './pages/Profile';
+
 
 export const App: React.FC = () => {
   return (
@@ -20,7 +23,9 @@ export const App: React.FC = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/*" element={<_404/> } />
           <Route path="/aboutUs" element={<AboutUs />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </Router>
     </>

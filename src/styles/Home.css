@@ -2,17 +2,62 @@
 .Ads {
   text-align: center;
 }
+.BestSeller{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 30px;
+  padding: 10px;
+  margin-top: 30px;
+}
+.BestSeller button{
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px 20px;
+  gap: 8px;
+  margin-right: 10px;
+  border: none;
+  background-color: white;
+}
+.BestSeller button::after {
+  content: ">>";
+  margin-left: 15px;
+  size: 70px;
+  font-weight: 700;
+}
+.BestSeller button:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.BestSeller h1{
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-left: 30px;
+}
+.BestSellerCard{
+  display: flex;
+  overflow-x:auto;
+  margin-left: 15px;
+  margin-bottom: 50px;
+}
+.BestSellerCard::-webkit-scrollbar {
+  display: none;
+}
+
 .ProductBrand{
   display: flex;
   flex-direction: column;
-  margin-left: 30px;
+  margin-left: 10px;
   padding: 10px;
+  margin-bottom: 70px;
 }
 .ProductBrand h1{
   font-size: 30px;
   font-weight: 700;
-  margin-top: 10px;
-  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 45px ;
 }
 .Brand{
   display: flex;
@@ -21,4 +66,39 @@
 .Brand::-webkit-scrollbar {
   display: none;
 }
+
+.Category{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
+.Category h1{
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  padding: 40px;
+} 
+
+.CategoryImage{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 600px) {
+  .CategoryImage {
+    grid-template-columns: repeat(2, 1fr); /* Dua kolom per baris */
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .CategoryImage {
+    grid-template-columns: repeat(3, 1fr); /* Tiga kolom per baris */
+    gap: 15px; /* Jarak antar gambar yang sedang */
+    width: max-content;
+  }
+}
+
+
 
