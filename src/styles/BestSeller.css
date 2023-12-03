@@ -1,48 +1,93 @@
 .Products-Card {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-  margin: 10px;
-  padding: 30px;
-  text-align: center;
+  flex-direction: column;
+  padding: 16px;
+  margin: 16px;
+  text-align: left;
+  flex-basis: calc(33.33% - 32px);
+  align-items: center;
 }
 .Products-Card:hover {
-  background-color: #EDF5FF;
+  background-color: #edf5ff;
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin: 16px;
+  text-align: left;
+  flex-basis: calc(33.33% - 32px);
+  align-items: center;
+}
+.Products-Card:hover {
+  background-color: #edf5ff;
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin: 16px;
+  text-align: left;
+  flex-basis: calc(33.33% - 32px);
+  align-items: center;
+}
+.Products-Card:hover {
+  background-color: #edf5ff;
   border-radius: 9px;
 }
 
-.heart-product {
+.productCard-heart {
   display: flex;
-  justify-items: left;
+  align-self: flex-end;
+  color: #ccc;
+  font-size: 25px;
 }
 
-.productsCard-detail{
+.productCard-heart:hover{
+    color: red;
+}
+
+.productsCard-detail {
+    color: red;
+}
+
+.productsCard-detail {
   display: flex;
   flex-direction: column;
+  align-items: start;
 }
 .ProductsCard-img {
-  width: 100%;
-  height: auto;
+  width: 255px;
+  height: 255px;
+}
+.productCard-title {
+  text-align: left;
+  color: #eca4b0;
+  font-size: 17px;
+  padding-bottom: 5px;
 }
 
-.productCard-title{
-color: #eca4b0;
-font-size: 20px;
+.productCard-category {
+  text-align: left;
+  color: #999798;
+  font-size: 16px;
+  padding-bottom: 2px;
 }
 
-.productCard-category{
-color: #999798;
-font-size: 17px;
+.productCard-price {
+  color: #999798;
+  font-family: Poppins;
+  font-size: 17px;
+  font-weight:600;
+  padding-bottom: 10px;
 }
 
-.ProductsCard-btn{
-background-color:#eca4b0;
-border-radius: 5px;
-border: none;
-padding: 10px 20px;
-width:max-content;
-color: white;
-gap: 8px;
+.ProductsCard-btn {
+  display: flex;
+  align-items: center;
+  background-color: #eca4b0;
+  border-radius: 5px;
+  border: none;
+  padding: 7px 40px;
+  width: max-content;
+  color: white;
+  gap: 8px;
 }
