@@ -12,10 +12,7 @@
   cursor: pointer;
   flex-wrap: wrap;
   justify-content: space-around;
-  transition: transform 0.3s;
-}
-.cardCategory:hover{
-  transform: scale(1.05);
+  flex-basis: calc(33.33% - 32px);
 }
 
 .imageCategory{
@@ -26,7 +23,22 @@
 
 @media (max-width: 600px) {
   .cardCategory {
-    width: 100%; 
-    margin: 10px 0; 
+    width: 250px;
+  }
+
+  .imageCategory {
+    width: 150px;
+    height: auto;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px){
+  .cardCategory {
+    width: 300px;
+  }
+
+  .imageCategory {
+    width: 200px;
+    height: auto;
   }
 }
