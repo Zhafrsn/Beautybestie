@@ -8,6 +8,7 @@
   justify-content: space-between;
   margin-left: 30px;
   padding: 10px;
+  margin-top: 30px;
 }
 .BestSeller button{
   font-size: 20px;
@@ -23,8 +24,12 @@
   margin-left: 15px;
   size: 70px;
   font-weight: 700;
-  
- }
+}
+.BestSeller button:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
 .BestSeller h1{
   font-size: 30px;
   font-weight: 700;
@@ -66,9 +71,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px;
-  margin-top: 80px;
-  margin-bottom: 90px;
+  margin-bottom: 70px;
 }
 
 .Category h1{
@@ -83,49 +86,18 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
-.aboutus__container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 90px;
+@media (max-width: 600px) {
+  .CategoryImage {
+    grid-template-columns: repeat(2, 1fr); /* Dua kolom per baris */
+  }
 }
 
-.aboutus__title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 0px;
-  background-color: #ACD0D0;
-}
-
-.aboutus__content {
-  display: flex;
-  position: relative;
-  z-index: -1;
-  flex-direction: column;
-  width: 100%;
-  height: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.aboutus__text {
-  position: absolute;
-  margin-top: 130px;
-  margin-left: 80px;
-  text-align: center;
-}
-
-.aboutus__text1 {
-  font-size: xxx-large;
-  font-weight: 500;
-  color: #ffffff;
-  margin-bottom: 130px;
-}
-
-.aboutus__text2 {
-  font-size: 25px;
-  font-weight: bold;
-  color: #ffffff;
+@media (min-width: 601px) and (max-width: 1024px) {
+  .CategoryImage {
+    grid-template-columns: repeat(3, 1fr); /* Tiga kolom per baris */
+    gap: 15px; /* Jarak antar gambar yang sedang */
+    width: max-content;
+  }
 }
 
 
