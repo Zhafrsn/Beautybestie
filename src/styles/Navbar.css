@@ -10,6 +10,7 @@
     color: white;
     top: 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 100;
 }
 
 .navbar__mobile{
@@ -17,6 +18,7 @@
     top: 0;
     width: 100%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 100;
 }
 
 .nav-item {
@@ -94,6 +96,72 @@
 
 .navbar__login-text{
     font-weight: bold;
+}
+
+.navbar__user-info{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.navbar__user-name{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border: none;
+    background-color: #ECA4B0;
+    color: white;
+    font-size: 14px;
+    font-weight: 550;
+}
+
+.navbar__profile-icon{
+    font-size: 20px;
+}
+.profile-icon{
+    font-size: 18px;
+}
+
+.profile-dropdown{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: max-content;
+    border: 2px solid #999798;
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 30px;
+}
+
+.navbar__profile-button{
+    display: flex;
+    flex-direction: row;
+    width: 150px;
+    justify-content: space-between;
+    text-align: justify;
+    align-items: center;
+    text-align: left;
+    color: #999798;
+    background: none;
+    padding: 4px 12px;
+    border: none;
+    font-size: 14px;
+    font-weight: 550;
+    cursor: pointer;
+}
+
+.navbar__profile-button:hover{
+    background-color: #ECA4B0;
+    color: white;
+    .my-profile-text{
+        color: white;
+    }
+}
+
+.my-profile-text{
+    text-decoration: none;
+    color: #999798;
 }
 
 /* navbar mobile */
