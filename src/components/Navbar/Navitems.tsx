@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCube, faHeart, faHome, faInfoCircle, faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faCube, faHeart, faHome, faInfoCircle, faRightFromBracket, faSearch, faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from "../../firebase/config"
@@ -17,6 +17,11 @@ export const navItems = [
 
 export const Navitems: React.FC = () => {
   const [user] = useAuthState(auth);
+  const [isProfileOpen, setIsProfileOpen] = useState<boolean>(false);
+
+  const toggleProfile = () => {
+    setIsProfileOpen(!isProfileOpen);
+  }
 
   return (
     <nav className="navbar">
@@ -44,10 +49,25 @@ export const Navitems: React.FC = () => {
         </NavLink>
         {user ? (
           <div className="navbar__user-info">
-            <span className="navbar__user-email">{user.displayName}</span>
-            <button onClick={() => signOut(auth)} className="navbar__logout-button">
-              Logout
+            <button className="navbar__user-name" onClick={toggleProfile}>
+              <FontAwesomeIcon icon={faUserCircle} className='navbar__profile-icon'/>
+              Hi, {user.displayName}
             </button>
+            <div>
+              {isProfileOpen && (
+                <div className='profile-dropdown'>
+                  <button className="navbar__profile-button">
+                    <a href='/profile' className='my-profile-text'>My Profile</a>
+                    <FontAwesomeIcon icon={faUserCircle} className='profile-icon'/>
+                  </button>
+                  <hr/>
+                  <button onClick={() => signOut(auth)} className="navbar__profile-button">
+                    Logout
+                    <FontAwesomeIcon icon={faRightFromBracket} className='profile-icon'/>
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         ) : (
           <div className="navbar__login-buttons">

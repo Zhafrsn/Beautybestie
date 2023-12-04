@@ -29,10 +29,18 @@
 }
 
 .products-dd-category {
+  display: flex;
   position: absolute;
-  right: 58%;
+  right: 55%;
+  gap: 8px;
 }
 .products-dd-sortby {
+  display: flex;
   position: absolute;
-  left: 61%;
+  left: 55%;
+  gap: 8px;
+}
+
+.products-option-title{
+  padding-top: 8px;
 }
