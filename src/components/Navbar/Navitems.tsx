@@ -44,7 +44,7 @@ export const Navitems: React.FC = () => {
         </NavLink>
         {user ? (
           <div className="navbar__user-info">
-            <span className="navbar__user-email">{user.email}</span>
+            <span className="navbar__user-email">{user.displayName}</span>
             <button onClick={() => signOut(auth)} className="navbar__logout-button">
               Logout
             </button>

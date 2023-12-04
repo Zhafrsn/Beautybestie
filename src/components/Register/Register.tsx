@@ -61,7 +61,7 @@ export const Register: React.FC = () => {
     const db = getFirestore();
     await setDoc(doc(db, 'userData', userCredential.user.uid), {
       uid: user.uid,
-      fullName: fullName,
+      displayName: fullName,
       phoneNumber: phoneNumber,
       // Add more fields as needed
     });
