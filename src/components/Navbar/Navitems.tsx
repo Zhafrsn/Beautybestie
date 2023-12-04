@@ -22,7 +22,7 @@ export const Navitems: React.FC = () => {
     <nav className="navbar">
       <div className="navbar__web-title">
         <img src={'images/logo.png'} className="navbar__logo-image" alt="logo" />
-        <span className="navbar__title">eautyBestie</span>
+        <span className="navbar__title">BeautyBestie</span>
       </div>
       <div className="nav-item">
         {navItems.map(item => (
@@ -45,9 +45,9 @@ export const Navitems: React.FC = () => {
         {user ? (
           <div className="navbar__user-info">
             <span className="navbar__user-email">{user.email}</span>
-            {/* <button onClick={() => signOut(auth)} className="navbar__logout-button">
+            <button onClick={() => signOut(auth)} className="navbar__logout-button">
               Logout
-            </button> */}
+            </button>
           </div>
         ) : (
           <div className="navbar__login-buttons">

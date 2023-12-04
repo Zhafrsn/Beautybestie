@@ -7,7 +7,7 @@ import { Navbar } from "../Navbar/Navbar";
 import '../../styles/Register.css';
 import { Sidebar } from 'components/Sidebar';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, setDoc, doc } from 'firebase/firestore';
 import { auth } from "../../firebase/config"
 import { useNavigate } from 'react-router-dom';
 
@@ -46,7 +46,6 @@ export const Register: React.FC = () => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      // Password and confirm password do not match
       alert('Password and confirm password do not match');
       return;
     }
@@ -60,7 +59,7 @@ export const Register: React.FC = () => {
 
     // Save additional user information to Firestore
     const db = getFirestore();
-    await addDoc(collection(db, 'userData'), {
+    await setDoc(doc(db, 'userData', userCredential.user.uid), {
       uid: user.uid,
       fullName: fullName,
       phoneNumber: phoneNumber,
