@@ -2,6 +2,7 @@ import { MainLayout } from 'layout';
 import '../styles/Products.css';
 import { Productcard } from '../components/productcard';
 import { Dropdown } from '../components/DropDown/DropDown';
+// import { dataProductLocal } from 'firebase/dataProductLocal';
 
 export const Products: React.FC = () => {
   const cardData = [
@@ -43,8 +44,27 @@ export const Products: React.FC = () => {
     },
   ];
 
-  const Option1 = ['All', 'Face Wash', 'Toner', 'Serum', 'Mask', 'Moisturizer', 'Sunscreen', 'Lip Care'];
-  const Option2 = ['All', 'Lowest Price', 'Highest Price'];
+  interface Option {
+    label: string;
+    value: string;
+  }
+
+  const Option1: Option[] = [
+    { label: 'All', value: 'all' },
+    { label: 'Face Wash', value: 'face-wash' },
+    { label: 'Toner', value: 'toner' },
+    { label: 'Serum', value: 'serum' },
+    { label: 'Mask', value: 'mask' },
+    { label: 'Moisturizer', value: 'moisturizer' },
+    { label: 'Sunscreen', value: 'sunscreen' },
+    { label: 'Lip Care', value: 'lip-care' }
+  ];
+  const Option2: Option[] = [
+    {label: 'All', value: 'all'},
+    {label: 'Lowest Price', value: 'lowest-price'},
+    {label: 'Highest Price', value: 'highest-price'}
+  ];
+
   return (
     <MainLayout>
       <div className='productsPage-container'>
@@ -53,11 +73,11 @@ export const Products: React.FC = () => {
         </div>
         <div className='Products-Dropdown'>
           <div className='products-dd-category'>
-            <p>Category :</p>
-            <Dropdown options={Option1}/>
+            <p className='products-option-title'>Category :</p>
+            <Dropdown options={Option1} />
           </div>
           <div className='products-dd-sortby'>
-            <p>Sort By :</p>
+            <p className='products-option-title'>Sort By :</p>
             <Dropdown options={Option2} />
           </div>
         </div>

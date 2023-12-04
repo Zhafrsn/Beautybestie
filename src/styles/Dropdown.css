@@ -30,6 +30,8 @@
   padding: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-decoration: none;
+  color: #999798;
 }
   
 /* Hover effect on dropdown options */

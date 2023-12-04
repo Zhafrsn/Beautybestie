@@ -6,7 +6,16 @@ import { Dropdown } from 'components/DropDown';
 
 import '../styles/Wishlist.css';
 
-const sortby = ['All','Date (Latest)', 'Date (Oldest)'];
+interface Option {
+  label: string;
+  value: string;
+}
+
+const sortby: Option[] = [
+  {label: 'All', value: 'all'},
+  {label: 'Date (Latest)', value: 'date-latest'}, 
+  {label: 'Date (Oldest)', value: 'date-oldest'}
+];
 
 const Wishlist: React.FC = () => {
   return (
