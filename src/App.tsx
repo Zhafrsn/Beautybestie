@@ -11,6 +11,7 @@ import AboutUs from './pages/AboutUs';
 import _404 from './pages/_404';
 import Profile from './pages/Profile';
 import History from './pages/History';
+import { ProductCategory } from './pages/productCategory';
 
 
 export const App: React.FC = () => {
@@ -28,6 +29,7 @@ export const App: React.FC = () => {
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/history" element={<History />} />
+          <Route path='/categoryProduct/:category' element={<ProductCategory/>} />
         </Routes>
       </Router>
     </>
