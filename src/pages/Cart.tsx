@@ -2,10 +2,12 @@ import { MainLayout } from "layout"
 import { CartCard } from "../components/Cart/CartCard"
 import "../styles/Cart.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // import { EmptyCart } from "../components/Cart/EmptyCart";
 
 export const Cart: React.FC = () => {
     const [quantity, setQuantity] = useState(1); 
+    const navigate = useNavigate()
 
     const increaseQuantity = () => {
         setQuantity(quantity + 1);
@@ -19,6 +21,10 @@ export const Cart: React.FC = () => {
 
     const totalPrice = (85000 * quantity);
     
+    const handleBuy = () => {
+        navigate('/checkout');
+    };
+
     return (
         <MainLayout>
             <div className='Cart'>
@@ -44,7 +50,7 @@ export const Cart: React.FC = () => {
                             <p>Total Orders</p>
                             <p>IDR {totalPrice}</p>
                         </div>
-                        <button className='cartCard_buy-btn'>Buy</button>
+                        <button className='cartCard_buy-btn' onClick={handleBuy}>Buy</button>
                     </div>
                 </div>
             </div>

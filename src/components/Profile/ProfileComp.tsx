@@ -2,47 +2,32 @@ import React from "react";
 import '../../styles/Profile.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle, faLocationDot, faBasketShopping, faClockRotateLeft, faCommentDots, faBell } from '@fortawesome/free-solid-svg-icons'
+import { useLocation } from "react-router-dom";
 
-export const navItems = [
-    { label: 'Profile', href: '/profile', icon: <FontAwesomeIcon icon={faUserCircle} /> },
-    { label: 'Address', href: '/address', icon: <FontAwesomeIcon icon={faLocationDot} /> },
-    { label: 'Order', href: '/order', icon: <FontAwesomeIcon icon={faBasketShopping} /> },
-    { label: 'History', href: '/history', icon: <FontAwesomeIcon icon={faClockRotateLeft} /> },
-    { label: 'Chat', href: '/chat', icon: <FontAwesomeIcon icon={faCommentDots} /> },
-    { label: 'Notification', href: '/notification', icon: <FontAwesomeIcon icon={faBell} /> },
+export const profileItems = [
+    { label: 'Profile', href: '/profile', icon: <FontAwesomeIcon icon={faUserCircle} className="profileComp__icon"/> },
+    { label: 'Address', href: '/address', icon: <FontAwesomeIcon icon={faLocationDot} className="profileComp__icon2"/> },
+    { label: 'Order', href: '/order', icon: <FontAwesomeIcon icon={faBasketShopping} className="profileComp__icon"/> },
+    { label: 'History', href: '/history', icon: <FontAwesomeIcon icon={faClockRotateLeft} className="profileComp__icon"/> },
+    { label: 'Chat', href: '/chat', icon: <FontAwesomeIcon icon={faCommentDots} className="profileComp__icon"/> },
+    { label: 'Notification', href: '/notification', icon: <FontAwesomeIcon icon={faBell} className="profileComp__icon"/> },
   ];
 
 const ProfileComp: React.FC = () => {
-    return (
-        <div className="profileComp__container">
-         <div className="profileComp__container2">
-          <div className="profileComp__container3">
-            <FontAwesomeIcon icon={faUserCircle} className="profileComp__icon"/>
-            <a href="/profile" className="profileComp__font">Profile</a>
-          </div>
-          <div className="profileComp__container3">
-            <FontAwesomeIcon icon={faLocationDot} className="profileComp__icon2"/>
-            <a href="/address" className="profileComp__font">Address</a>
-          </div>
-          <div className="profileComp__container3">
-            <FontAwesomeIcon icon={faBasketShopping} className="profileComp__icon"/>
-            <a href="/order" className="profileComp__font">Order</a>
-          </div>
-          <div className="profileComp__container3">
-            <FontAwesomeIcon icon={faClockRotateLeft} className="profileComp__icon"/>
-            <a href="/history" className="profileComp__font">History</a>
-          </div>
-          <div className="profileComp__container3">
-            <FontAwesomeIcon icon={faCommentDots} className="profileComp__icon"/>
-            <a href="/chat" className="profileComp__font">Chat</a>
-          </div>
-          <div className="profileComp__container3">
-            <FontAwesomeIcon icon={faBell} className="profileComp__icon"/>
-            <a href="/notification" className="profileComp__font">Notification</a>
-          </div>
-         </div>
-        </div>
-    );
+  const location = useLocation();
+  
+  return (
+    <div className="profileComp__container">
+    <div className="profileComp__container2">
+     {profileItems.map((item) => (
+       <div key={item.label} className={`profileComp__container3 ${location.pathname === item.href ? 'active' : ''}`}>
+         {item.icon}
+         <a href={item.href} className="profileComp__font">{item.label}</a>
+       </div>
+     ))}
+    </div>
+   </div>   
+  );
 
 };
 

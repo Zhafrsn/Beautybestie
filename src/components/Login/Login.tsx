@@ -6,23 +6,22 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from "../../firebase/config"
 import { Navbar } from 'components/Navbar';
 import { Sidebar } from 'components/Sidebar';
-import { useNavigate } from 'react-router-dom';
+import { SuccessLogin } from 'components/PopUp/SuccessLogin';
+import { LoginFailed } from 'components/PopUp/LoginFailed';
 
 export const Login: React.FC = () => {
-  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSingIn = (e: React.FormEvent) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log(userCredential)
-        alert("adalah bisa");
-        navigate('/');
-      }).catch((error) => {
-        console.log(error)
-        alert("yakali bisa");
+      .then(() => {
+        setShowSuccessPopup(true);
+      }).catch(() => {
+        setError(true);
       })
     console.log('Email:', email);
     console.log('Password:', password);
@@ -81,6 +80,8 @@ export const Login: React.FC = () => {
           </div>  
         </form>
       </div>
+      {error && <LoginFailed/>}
+      {showSuccessPopup && <SuccessLogin />}
     </>
   );
 };
