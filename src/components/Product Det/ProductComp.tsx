@@ -35,12 +35,12 @@ export const ProductComp: React.FC = () => {
           <span>{itemCount}</span>
           <button onClick={handleIncrement}>+</button>
         </div>
-        <button>Add to cart</button>
+        <button className='cart_btn'>Add to cart</button>
       </div>
       <div className='btn_wishlist'>
         <FontAwesomeIcon icon={faHeart} style={{color: "#cfcfcf",}} className='faHeart' />
         <button>Add to Wishlist</button>
-      </div> 
+      </div>
     </div>
   );
 };

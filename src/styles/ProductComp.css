@@ -32,12 +32,34 @@
   font-weight: 600;
   padding: 10px 20px;
   gap: 8px;
+  cursor: pointer;
 }
 .product_Comp_btn{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+.product_comp_btnitem{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  font-size: 20px;
+  align-items: center;
+  border: 1px solid rgba(153, 151, 152, 0.8);
+}
+.product_comp_btnitem button{
+  border: none;
+  background-color: white;
+  width: 80px;
+}
+.cart_btn{
+  margin-right: 20px;
+  background-color: rgba(236, 164, 176, 1);
+  border: none;
+  color: white;
+  width: 200px;
+}
+
 .btn_wishlist{
   display: flex;
   flex-direction: row;
@@ -54,3 +76,9 @@
   text-decoration: none;
 }
 
+.desc_product{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
