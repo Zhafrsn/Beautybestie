@@ -48,6 +48,52 @@
   margin-top: 30px;
 }
 
+.desc_product{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 60px;
+  text-align: justify;  
+}
+.desc_product h2{
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+.desc_product p{
+  margin-bottom: 20px;
+}
+.logo_desc{
+  display: flex;
+  font-size: 30px;
+  gap: 10px;
+}
+.Judul_UserReview{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 30px;
+  padding: 10px;
+  margin-top: 30px;
+}
+.UserReview{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 30px;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+.UserReview::-webkit-scrollbar {
+  display: none;
+}
+.UserReview_Card{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  width: 200%;
+}
+
 .Pro_Rec{
   display: flex;
   flex-direction: column;
@@ -59,8 +105,6 @@
 .Pro_Rec h1{
   font-size: 30px;
   font-weight: 700;
-  margin-top: 10px;
-  margin-left: 30px;
 }
 .Pro_Rec_Card{
   display: flex;
