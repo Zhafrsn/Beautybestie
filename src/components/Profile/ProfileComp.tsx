@@ -20,7 +20,7 @@ const ProfileComp: React.FC = () => {
     <div className="profileComp__container">
     <div className="profileComp__container2">
      {profileItems.map((item) => (
-       <div key={item.label} className={`profileComp__container3 ${location.pathname === item.href ? 'active' : ''}`}>
+       <div key={item.label} className={`profileComp__container3 ${location.pathname.startsWith(item.href) ? 'active' : ''}`}>
          {item.icon}
          <a href={item.href} className="profileComp__font">{item.label}</a>
        </div>

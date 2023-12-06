@@ -14,6 +14,9 @@ import History from './pages/History';
 import { ProductCategory } from './pages/productCategory';
 import { ChatPage } from 'components/Chat/ChatPage';
 import Address from './pages/Address'
+import { NotPaid } from 'pages/Order/NotPaidPage';
+import { BeingPackaged } from 'pages/Order/BeingPackagedPage';
+import { Sent } from 'pages/Order/SentPage';
 
 
 export const App: React.FC = () => {
@@ -34,7 +37,10 @@ export const App: React.FC = () => {
           <Route path='/categoryProduct/:category' element={<ProductCategory />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/chat' element={<ChatPage />} />
-          <Route path="/address" element={<Address />} />
+          <Route path='/address' element={<Address/>}/>
+          <Route path='/order' element={<NotPaid/>}/>
+          <Route path='/order/being-packaged' element={<BeingPackaged/>}/>
+          <Route path='/order/sent' element={<Sent/>}/>
         </Routes>
       </Router>
     </>
