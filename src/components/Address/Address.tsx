@@ -45,8 +45,12 @@ export const AddressComponent: React.FC = () => {
     <div>
      <table>
      <button className="Address__AddnewaddressBTN" onClick={() => console.log('Add new address')}>+ Add New Address</button>
+       
        <thead>
-           <tr>
+         
+                 <tr>
+                 
+
           </tr>
         </thead>
         <tbody>
