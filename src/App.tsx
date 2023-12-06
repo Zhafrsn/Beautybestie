@@ -2,7 +2,7 @@ import React from 'react';
 import './styles/Global.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home';
-import { Products } from 'pages';
+import { Checkout, Products } from 'pages';
 import WishlistPage from './pages/Wishlist';
 import { Cart } from './pages/Cart';
 import { Login } from './components/Login/Login';
@@ -12,6 +12,7 @@ import _404 from './pages/_404';
 import Profile from './pages/Profile';
 import History from './pages/History';
 import { ProductCategory } from './pages/productCategory';
+import { ChatPage } from 'components/Chat/ChatPage';
 
 
 export const App: React.FC = () => {
@@ -29,7 +30,9 @@ export const App: React.FC = () => {
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/history" element={<History />} />
-          <Route path='/categoryProduct/:category' element={<ProductCategory/>} />
+          <Route path='/categoryProduct/:category' element={<ProductCategory />} />
+          <Route path='/checkout' element={<Checkout />} />
+          <Route path='/chat' element={<ChatPage />} />
         </Routes>
       </Router>
     </>

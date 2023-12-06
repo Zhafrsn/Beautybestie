@@ -29,9 +29,9 @@ const Wishlist: React.FC = () => {
         <div className='wishlist__all'>
           <div className='wishlist__kontainer2'>
             <p className='wishlist__total'>Total : .. Wishlist</p>
-            <p className='wishlist__sortby-text'>Sort By : </p>
           </div>
           <div className='wishlist__sortby'>
+            <p className='wishlist__sortby-text'>Sort By : </p>
             <Dropdown options={sortby} /> 
           </div>
           <WishlistCard/>

@@ -1,3 +1,4 @@
+/* chat pop up */
 .chatPopUp__container{
     display: flex;
     flex-direction: column;
@@ -115,4 +116,126 @@
     position: fixed;
     right: 40px;
     bottom: 50px;
+}
+
+/* chat page */
+.chat-page{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.chatPage__container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 40px 50px 40px 0px;
+    padding: 15px;
+    border: 1px solid #999798;
+    border-radius: 10px;
+    gap: 8px;
+}
+
+.chatPage-header{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 8px;
+}
+
+.chatPage__header-text{
+    color: black;
+}
+
+.chatPage__web-title{
+    color: #eca4b0;
+    font-weight: bold;
+}
+
+.chatPage__text-container{
+    display: flex;
+    color: #6A6A6A;
+    align-items: center;
+    gap: 32px;
+}
+
+.chatPage__text{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chatPage-content{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 16px;
+    padding-top: 8px;
+}
+
+.chatPage-date{
+    padding-left: 45%;
+}
+
+.chatPage__msg-container{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    border: 1px solid black;
+    border-radius: 0px 10px 10px 10px;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+.chatPage-msg{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.chatPage__msg-info{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    color: #7E797B;
+    font-size: 12px;
+}
+
+.chatPage__sendMsg-comp{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.chatPage__sendMsg-btn{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+    border: 1px solid #6A6A6A;
+    border-radius: 20px;
+    padding: 15px;
+    color: #6A6A6A;
+    font-size: 20px;
+}
+
+.chatPage__input-msg{
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+
+.chatPage__send-btn{
+    background-color: #ECA4B0;
+    color: white;
+    font-size: 20px;
+    border: 1px solid #6A6A6A;
+    padding: 10px 15px;
+    border-radius: 50%;
 }

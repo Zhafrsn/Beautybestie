@@ -113,6 +113,7 @@
   border: none;
   color: #999798;
   padding: 0px 8px;
+  cursor: pointer;
 }
 
 .cartCard__summary {
@@ -146,6 +147,7 @@
   width: 100%;
   border: none;
   padding: 8px;
+  cursor: pointer;
 }
 
 /* empty cart */

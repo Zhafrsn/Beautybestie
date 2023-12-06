@@ -22,6 +22,16 @@
     }
 }
 
+.profileComp__container3.active {
+    background-color: #eca4b0;
+    color: black;
+    font-weight: bold;
+    .profileComp__icon, 
+    .profileComp__icon2 {
+        color: #ffffff;
+    }
+}
+
 .profileComp__container3 {
     display: flex;
     flex-direction: row;
