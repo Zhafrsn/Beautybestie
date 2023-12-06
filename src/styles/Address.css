@@ -35,18 +35,18 @@
 
 .Address__AddnewaddressBTN {
   margin-top: 8%;
-  margin-left: 300%;
+  margin-left: 80%;
   font-size: 16px;
   width: 223.317px;
   height: 57px;
   flex-shrink: 0;
   color: #ffffff;
   background-color: #eca4b0;
-  border-color: #eca4b0;
+  border: none;
 }
 
-.Address__PrimaryBTN {
+.Address__PrimaBTN {
   color: #ffffff;
   background-color: #eca4b0;
-  border-color: #eca4b0;
+  border: none;
 }
