@@ -1,0 +1,108 @@
+.rating_comp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 40px;
+    width: 100%;
+}
+.left_card{
+    padding: 20px;
+    width: 65%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.top_rating_comp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+.left_rating{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;  
+  justify-content: space-between;
+  width: 300px;
+  text-align: center;
+}
+.left_rating h1{
+  font-size: 60px;
+  font-weight: 600;
+}
+.star{
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  align-self: center;
+}
+.right_rating{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;  
+    width: 100%;
+    margin-left: 60px;
+    align-self: flex-start;
+}
+.right_rating_bottom{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.right_rating_bottom1, .right_rating_bottom2{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.right_rating_bottom p{
+  background-color: rgba(255, 184, 201, 1);
+  color: white;
+  padding: 5px;
+  width: 50px;
+  text-align: center;
+}
+.right_Card{
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.bottom_rating_comp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    height: 40px;
+    background-color: rgba(255, 184, 201, 1);
+    margin-top: 20px;
+}
+.left_bottom, .right_bottom{
+  display: flex;
+  flex-direction: row;
+  padding: 70px;
+  gap: 10px;
+  align-items: center;
+}
+.right_Card{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 20px;
+}
+.right_Card button{
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  width: 100%;
+  cursor: pointer;
+}
