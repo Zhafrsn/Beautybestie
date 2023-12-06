@@ -1,52 +1,50 @@
-.Address__container {
+.Address-Container {
+  border: 2px solid #cccccc;
+  width: 150%;
+  margin: 40px 70px 40px 0px;
   display: flex;
-  margin-left: 200px;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
 }
 
-.Address__title {
-  padding-top: 20px;
-  padding-left: 30px;
+.Address-BtnNewAddress {
+  background-color: #eca4b0;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  font-weight: bold;
 }
 
-.Address__body {
+.Address-TitleDanBtnNew {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-bottom: 2px solid #cccccc;
+  padding: 10px 15px;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Address-MenuAlamat1 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-bottom: 2px solid #cccccc;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+
+.Address-NamaNomor {
   display: flex;
   flex-direction: row;
 }
 
-.Address__Body_Ac {
+.Address-Icons {
   display: flex;
-  border: 1px solid #cccc;
-  box-shadow: 1px 3px 3px 1px #888888b2;
-  margin: 20px;
+  flex-direction: row;
+  gap: 10px;
 }
 
-.Address__Name {
-  color: rgb(0, 0, 0);
-  margin-right: 20%;
-  font-size: 10px;
-  font-weight: 20px;
-}
-
-.Address__PhoneNumber {
-  color: #c2c2c2;
-  font-size: 10px;
-  margin-left: 40%;
-}
-
-.Address__AddnewaddressBTN {
-  margin-top: 8%;
-  margin-left: 80%;
-  font-size: 16px;
-  width: 223.317px;
-  height: 57px;
-  flex-shrink: 0;
-  color: #ffffff;
-  background-color: #eca4b0;
-  border: none;
-}
-
-.Address__PrimaBTN {
-  color: #ffffff;
-  background-color: #eca4b0;
-  border: none;
-}
