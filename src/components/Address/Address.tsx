@@ -3,8 +3,6 @@ import { useState } from 'react';
 import '../../styles/Address.css';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 interface Address {
@@ -26,19 +24,11 @@ export const AddressComponent: React.FC = () => {
       streetAddress: 'Blok M/12, Jalan Apa,',
       city: 'Kecamatan,',
       region: 'Kota Makassar,',
-      streetAddress: 'Blok M/12, Jalan Apa,',
-      city: 'Kecamatan,',
-      region: 'Kota Makassar,',
       postalCode: '90235',
     },
     {
       fullName: 'Raul Nas',
-      fullName: 'Raul Nas',
       phoneNumber: '+62 841 3446 2214',
-      streetAddress: 'Blok M/12, Jalan Apa Lain,',
-      city: 'Kecamatan,',
-      region: 'Kota Makassar,',
-      postalCode: '90235.',
       streetAddress: 'Blok M/12, Jalan Apa Lain,',
       city: 'Kecamatan,',
       region: 'Kota Makassar,',
@@ -58,27 +48,14 @@ export const AddressComponent: React.FC = () => {
      <div className='Address-TitleDanBtnNew'>
       <h1>Address</h1>
       <button className='Address-BtnNewAddress' onClick={() => console.log('Add new address')}>+ Add New Address</button>
-     </div>
-   <div>
-     <div className='Address-Container'>
-     <div className='Address-TitleDanBtnNew'>
-      <h1>Address</h1>
-      <button className='Address-BtnNewAddress' onClick={() => console.log('Add new address')}>+ Add New Address</button>
-     </div>
+      </div>
           {addresses.map((address) => (
             <AddressRow
             key={address.phoneNumber}
             address={address}
             isPrimary={address === primaryAddress}
             setAsPrimary={setAsPrimary}
-            key={address.phoneNumber}
-            address={address}
-            isPrimary={address === primaryAddress}
-            setAsPrimary={setAsPrimary}
             />
-            ))}
-        </div>
-     </div>
             ))}
         </div>
      </div>
