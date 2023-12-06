@@ -20,25 +20,33 @@
   height: 250px;
   object-fit:contain;
 }
+.titleCategory{
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 @media (max-width: 600px) {
+  .titleCategory{
+    font-size: 17px;
+  }
   .cardCategory {
-    width: 250px;
+    width: 200px;
   }
 
   .imageCategory {
-    width: 150px;
+    width: 100px;
     height: auto;
   }
 }
 
 @media (min-width: 601px) and (max-width: 1024px){
   .cardCategory {
-    width: 300px;
+    width: 250px;
   }
 
   .imageCategory {
-    width: 200px;
+    width: 150px;
     height: auto;
   }
 }
