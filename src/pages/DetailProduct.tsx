@@ -1,7 +1,6 @@
 import React from "react";
 import { MainLayout } from "layout";
 import { BestSeller } from "../components/Best Seller/BestSeller";
-// import userReview from "../components/User Review/userReview";
 import { UserReview } from "../components/User Review/UserReview";
 import "../styles/DetailProduct.css";
 import { ProductComp } from "components/Product Det/ProductComp";
