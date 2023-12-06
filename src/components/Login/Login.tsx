@@ -15,19 +15,30 @@ export const Login: React.FC = () => {
   const [password, setPassword] = useState('');
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [error, setError] = useState(false);
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+
+  const handleCaptchaChange = (value: string | null) => {
+    // Update the captcha value when it changes
+    setCaptchaValue(value);
+  };
 
   const handleSingIn = (e: React.FormEvent) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        setShowSuccessPopup(true);
-      }).catch(() => {
-        setError(true);
-      })
-    console.log('Email:', email);
-    console.log('Password:', password);
+    if (captchaValue) {
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          setShowSuccessPopup(true);
+        }).catch(() => {
+          setError(true);
+        })
+      console.log('Email:', email);
+      console.log('Password:', password);
+    }
+    else {
+      console.error('Captcha not completed');
+    }
   };
-
+  
   return (
     <>
       <Sidebar contentId="side-bar" isOpen={false} toggleSidebar={() => {}} />
@@ -68,7 +79,7 @@ export const Login: React.FC = () => {
           <div className='login__wrapper'>
           <ReCAPTCHA
         sitekey="6LcFGicpAAAAAE8KhHQrMTrUsrhv9bQH4wsbojpx"
-        onChange={(value) => console.log("reCAPTCHA value:", value)}
+        onChange={handleCaptchaChange}
       />
             <button type="submit" className='login__btn-login'>LOGIN</button>
             <div className='login__or-container'>
