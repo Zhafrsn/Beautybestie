@@ -7,6 +7,7 @@ import { ProductComp } from "components/Product Det/ProductComp";
 import { faInstagram, faFacebook, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { RatingComp } from "components/RatingDetail/RatingComp";
 
 export const DetailProduct: React.FC = () => {
   const UserReviewData = [
@@ -107,6 +108,9 @@ export const DetailProduct: React.FC = () => {
           <FontAwesomeIcon icon={faInstagram} style={{color: "#f52947",}} />
           <FontAwesomeIcon icon={faShare} style={{ color: "#1eff00", }} />
         </div>
+      </div>
+      <div className='rating_detail'>
+        <RatingComp />
       </div>
       <div className="Judul_UserReview">
         <h1>User Review</h1>
