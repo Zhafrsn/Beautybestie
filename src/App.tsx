@@ -20,6 +20,8 @@ import { Sent } from 'pages/Order/SentPage';
 // Admin
 import { LoginAdmin } from 'pages/Admin/Login';
 import { Dashboard } from 'pages/Admin/Dashboard';
+import User from 'pages/Admin/User';
+import Customer from 'pages/Admin/Customer';
 
 
 export const App: React.FC = () => {
@@ -48,6 +50,8 @@ export const App: React.FC = () => {
           {/* Route Admin */}
           <Route path='/Admin' element={<LoginAdmin/>}/>
           <Route path='/Dashboard' element={<Dashboard/>}/>
+          <Route path='/admin/user' element={<User/>}/>
+          <Route path='/admin/customer' element={<Customer/>}/>
         </Routes>
       </Router>
     </>
