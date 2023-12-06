@@ -27,7 +27,7 @@ export const Navitems: React.FC = () => {
     <nav className="navbar">
       <div className="navbar__web-title">
         <img src={'images/logo.png'} className="navbar__logo-image" alt="logo" />
-        <span className="navbar__title">eautyBestie</span>
+        <span className="navbar__title">BeautyBestie</span>
       </div>
       <div className="nav-item">
         {navItems.map(item => (
@@ -51,7 +51,7 @@ export const Navitems: React.FC = () => {
           <div className="navbar__user-info">
             <button className="navbar__user-name" onClick={toggleProfile}>
               <FontAwesomeIcon icon={faUserCircle} className='navbar__profile-icon'/>
-              Hi, {user.email}
+              Hi, {user.displayName}
             </button>
             <div>
               {isProfileOpen && (
