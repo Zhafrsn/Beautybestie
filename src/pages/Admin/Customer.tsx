@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout } from './layout';
 import '../../styles/Admin/CustomerAdmin.css';
 import CustomerAction from './Components/Customer/Action';
-import Table from './Components/Customer/CustomerTable';
+import Table from './Components/User/UserTable';
 import ActionTable from './Components/Customer/ActionTable';
 
 
