@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import '../../styles/Address.css';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 interface Address {
@@ -19,18 +21,18 @@ export const AddressComponent: React.FC = () => {
      {
       fullName: 'Annisa Raulita',
       phoneNumber: '+62 841 3446 2214',
-      streetAddress: 'Blok M/12, Jalan Apa',
-      city: 'Kecamatan',
-      region: 'KOTA MAKASSAR',
+      streetAddress: 'Blok M/12, Jalan Apa,',
+      city: 'Kecamatan,',
+      region: 'Kota Makassar,',
       postalCode: '90235',
     },
     {
-      fullName: 'Annisa Raulita',
+      fullName: 'Raul Nas',
       phoneNumber: '+62 841 3446 2214',
-      streetAddress: 'Blok M/12, Jalan Apa Lain',
-      city: 'Kecamatan',
-      region: 'KOTA MAKASSAR',
-      postalCode: '90235',
+      streetAddress: 'Blok M/12, Jalan Apa Lain,',
+      city: 'Kecamatan,',
+      region: 'Kota Makassar,',
+      postalCode: '90235.',
     },
  ]);
  
@@ -40,27 +42,23 @@ export const AddressComponent: React.FC = () => {
  const setAsPrimary = (address: Address) => {
     setPrimaryAddress(address);
  };
-
  return (
-    <div>
-     <table>
-     <button className="Address__AddnewaddressBTN" onClick={() => console.log('Add new address')}>+ Add New Address</button>
-       <thead>
-           <tr>
-          </tr>
-        </thead>
-        <tbody>
+   <div>
+     <div className='Address-Container'>
+     <div className='Address-TitleDanBtnNew'>
+      <h1>Address</h1>
+      <button className='Address-BtnNewAddress' onClick={() => console.log('Add new address')}>+ Add New Address</button>
+     </div>
           {addresses.map((address) => (
             <AddressRow
-              key={address.phoneNumber}
-              address={address}
-              isPrimary={address === primaryAddress}
-              setAsPrimary={setAsPrimary}
+            key={address.phoneNumber}
+            address={address}
+            isPrimary={address === primaryAddress}
+            setAsPrimary={setAsPrimary}
             />
-          ))}
-        </tbody>
-         </table>
-    </div>
+            ))}
+        </div>
+     </div>
  );
 };
 
@@ -72,23 +70,23 @@ interface AddressRowProps {
 
 const AddressRow: React.FC<AddressRowProps> = ({ address, isPrimary, setAsPrimary }) => {
  return (
-     <tr>
-         <div className="Address__Name">
-             <td><h1>{address.fullName}</h1></td>
+     <div className='Address-MenuAlamat1'>
+       <div className='Address-Alamat1'>
+         <div className='Address-NamaNomor'>
+            <p>{address.fullName}</p>
+            <hr />         
+            <p>{address.phoneNumber}</p>
          </div>
-         <div className="Address__PhoneNumber">
-             <td><h2>{address.phoneNumber}</h2></td>
-         </div>
-         <div className="Address__Detail">
-      <td><h3>{address.streetAddress}</h3></td>
-      <td><h4>{address.city}</h4></td>
-      <td><h5>{address.region}</h5></td>
-             <td><h6>{address.postalCode}</h6></td>
-             </div>
-     <td>
-        <button className="Address__PrimaBTN" onClick={() => setAsPrimary(address)}>{isPrimary ? 'Primary' : 'Set as Primary'}</button>
-      </td>
-    </tr>
+            <h3>{address.streetAddress} {address.city} {address.region} {address.
+            postalCode}</h3>
+         <button className= 'Address-Primary' onClick={() => setAsPrimary(address)}></button>
+         <button className= 'Address-Set' onClick={() => setAsPrimary(address)}>{isPrimary ? 'Primary' : 'Set as Primary'}</button>
+       </div>
+       <div className='Address-Icons'>
+         <FontAwesomeIcon icon={faEdit} className='Address-EditIcon' />
+         <FontAwesomeIcon icon={faTrash} className='Address-TrashIcon'/>
+       </div>
+     </div>
  );
 };
 
