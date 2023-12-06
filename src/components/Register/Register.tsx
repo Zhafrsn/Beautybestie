@@ -10,6 +10,7 @@ import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { getFirestore, collection, addDoc, setDoc, doc } from 'firebase/firestore';
 import { auth } from "../../firebase/config"
 import { useNavigate } from 'react-router-dom';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export const Register: React.FC = () => {
   const [fullName, setFullName] = useState('');
@@ -165,7 +166,11 @@ export const Register: React.FC = () => {
           </div>
         </div>
         </div>
-        <div className='signup__wrapper'>
+          <div className='signup__wrapper'>
+          <ReCAPTCHA
+        sitekey="6LcFGicpAAAAAE8KhHQrMTrUsrhv9bQH4wsbojpx"
+        onChange={(value) => console.log("reCAPTCHA value:", value)}
+      />
           <button type="submit" className='signup__btn-signup'>SIGN UP</button>
           <div className='signup__or-container'>
             <p className='signup-or'>or</p>

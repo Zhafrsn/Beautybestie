@@ -7,6 +7,7 @@ import { auth } from "../../firebase/config"
 import { Navbar } from 'components/Navbar';
 import { Sidebar } from 'components/Sidebar';
 import { useNavigate } from 'react-router-dom';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -66,6 +67,10 @@ export const Login: React.FC = () => {
             </div>
           </div> 
           <div className='login__wrapper'>
+          <ReCAPTCHA
+        sitekey="6LcFGicpAAAAAE8KhHQrMTrUsrhv9bQH4wsbojpx"
+        onChange={(value) => console.log("reCAPTCHA value:", value)}
+      />
             <button type="submit" className='login__btn-login'>LOGIN</button>
             <div className='login__or-container'>
               <p className='login-or'>or</p>
