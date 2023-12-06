@@ -26,6 +26,12 @@
   color: #000;
 }
 
+.NotFound_Button{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
 .NotFound_Button button {
   font-weight: 900;
   text-transform: none;

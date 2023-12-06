@@ -1,7 +1,11 @@
 import React from "react";
 import "../../styles/NotFound.css";
 
+
 const NotFound: React.FC = () => {
+  const goBack = () => {
+    window.history.back();
+  };
   return (
     <div className="NotFound_Wrapper">
       <header className="NotFound_Title">
@@ -10,12 +14,12 @@ const NotFound: React.FC = () => {
       </header>
 
       <section className="NotFound_Button">
+          <button onClick={goBack}>Back to Previous Page</button>
         <a href="/">
-          <button>Go Home</button>
+          <button>Go to Home</button>
         </a>
       </section>
     </div>
   );
 };
-
 export default NotFound;
