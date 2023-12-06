@@ -1,0 +1,54 @@
+.Newsaddress-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%; 
+}
+
+.Newaddress-header{
+    text-align: left;
+    color: black;
+}
+
+.Newaddress-input-items{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 16px;
+    width: 100%;
+}
+
+.Newaddress__inputs-container{
+ display: flex;
+ flex-direction: column;
+ gap: 2px;
+ width: 100%;
+}
+
+.addnewaddress-button{
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #ccc;
+    padding: 15px 10px;
+}
+
+.namenewaddress-inputz{
+    border: none;
+    outline: none;
+    color:black;
+    width: 100%;
+}
+
+.namenewaddress-input::placeholder{
+    color:#ccc;
+    font-style: italic;
+}
+
+.phonenumber-label{
+    color:#999798;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+

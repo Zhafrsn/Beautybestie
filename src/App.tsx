@@ -54,6 +54,8 @@ export const App: React.FC = () => {
           <Route path='/admin/users' element={<User/>}/>
           <Route path='/admin/customers' element={<Customer />} />
           <Route path='/admin/productlist' element={<Productlist />} />
+          <Route path='/order/sent' element={<Sent />} />
+          <Route path='/newaddress' element={<Newaddress/>}/>
         </Routes>
       </Router>
     </>
