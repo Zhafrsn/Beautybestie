@@ -73,18 +73,17 @@ const AddressRow: React.FC<AddressRowProps> = ({ address, isPrimary, setAsPrimar
      <div className='Address-MenuAlamat1'>
        <div className='Address-Alamat1'>
          <div className='Address-NamaNomor'>
-            <p>{address.fullName}</p>
+            <p className='Address-FullName'>{address.fullName}</p>
             <hr />         
-            <p>{address.phoneNumber}</p>
+            <p className='Address-PhoneNumber'>{address.phoneNumber}</p>
          </div>
-            <h3>{address.streetAddress} {address.city} {address.region} {address.
-            postalCode}</h3>
-         <button className= 'Address-Primary' onClick={() => setAsPrimary(address)}></button>
-         <button className= 'Address-Set' onClick={() => setAsPrimary(address)}>{isPrimary ? 'Primary' : 'Set as Primary'}</button>
+            <p>{address.streetAddress} {address.city} {address.region} {address.
+            postalCode}</p>
+         <button className= 'Address-Primary' onClick={() => setAsPrimary(address)}>{isPrimary ? 'Primary' : 'Set as Primary'}</button>
        </div>
        <div className='Address-Icons'>
-         <FontAwesomeIcon icon={faEdit} className='Address-EditIcon' />
-         <FontAwesomeIcon icon={faTrash} className='Address-TrashIcon'/>
+         <FontAwesomeIcon icon={faEdit} className='Address-Icon'/>
+         <FontAwesomeIcon icon={faTrash} className='Address-Icon'/>
        </div>
      </div>
  );

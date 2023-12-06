@@ -1,18 +1,19 @@
 .Address-Container {
   border: 2px solid #cccccc;
-  width: 150%;
+  width: 165%;
   margin: 40px 70px 40px 0px;
   display: flex;
   align-items: center;
   flex-direction: column;
   border-radius: 10px;
+  padding: 0px 10px;
 }
 
 .Address-BtnNewAddress {
   background-color: #eca4b0;
   color: white;
   border: none;
-  padding: 5px 15px;
+  padding: 10px 15px;
   font-weight: bold;
 }
 
@@ -21,7 +22,7 @@
   flex-direction: row;
   width: 100%;
   border-bottom: 2px solid #cccccc;
-  padding: 10px 15px;
+  padding: 20px 20px;
   text-align: center;
   align-items: center;
   justify-content: space-between;
@@ -37,14 +38,40 @@
   padding: 10px 15px;
 }
 
+.Address-MenuAlamat1 p{
+  padding-bottom: 15px;
+}
+
 .Address-NamaNomor {
   display: flex;
   flex-direction: row;
+  gap: 20px;
+  padding: 10px 0px;
+}
+
+.Address-FullName{
+  font-weight: bold;
+  font-size: larger;
+}
+
+.Address-PhoneNumber{
+  color: #6A6A6A;
+}
+
+.Address-Primary{
+  border: 3px solid #eca4b0;
+  background: none;
+  padding: 5px 10px;
+  font-weight: 900;
+  color: #eca4b0;
 }
 
 .Address-Icons {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 30px;
 }
 
+.Address-Icon{
+  color: #eca4b0;
+}
