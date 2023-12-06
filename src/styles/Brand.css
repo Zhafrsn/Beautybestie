@@ -36,11 +36,13 @@
 
 @media screen and (max-width: 600px) {
   .cardBrand {
-    width: 500px;
+    width: 470px;
+    height: 230px;
   }
 
   .logoBrand {
     width: 300px;
     height: auto;
+    text-align: center;
   }
 }

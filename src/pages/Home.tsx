@@ -7,6 +7,8 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { Products } from "./Products";
 import Category from '../components/Category/Category';
 import AboutUsComp from "components/AboutUs/AboutUsComp";
+import ImageSlider from "components/Ads/Ads";
+import { Settings } from "@mui/icons-material";
 
 export const Home: React.FC = () => {
   const adImages = [
@@ -81,7 +83,9 @@ export const Home: React.FC = () => {
   return (
       <MainLayout>
         <div className="Ads">
-          <Ads images={adImages} />
+        {[adImages].map((image, index) => (
+          <ImageSlider key={index} images={image} />
+        ))}
         </div>
         <div className="BestSeller">
           <h1>BEST SELLER</h1>

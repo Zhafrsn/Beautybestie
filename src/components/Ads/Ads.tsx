@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
+import '../../styles/Ads.css';
 
 interface ImageSliderProps {
   images: string[];
@@ -34,8 +35,8 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
     <div style={{ position:'relative', zIndex: -1}}>
       <Slider {...settings}>
         {images.map((image, index) => (
-          <div key={index} style={{ width: '100%' , height: '700px' }}>
-            <img src={image} alt={`Slide ${index}`} style={{ width: '100%', height: '700px' }} />
+          <div key={index}>
+            <img className='imageAds' src={image} alt={`Slide ${index}`} />
           </div>
         ))}
       </Slider>
