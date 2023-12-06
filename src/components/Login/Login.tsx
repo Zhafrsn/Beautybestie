@@ -18,7 +18,6 @@ export const Login: React.FC = () => {
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
 
   const handleCaptchaChange = (value: string | null) => {
-    // Update the captcha value when it changes
     setCaptchaValue(value);
   };
 

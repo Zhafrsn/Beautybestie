@@ -3,11 +3,7 @@
   "env": {
     "node": true
   },
-  "extends": [
-    "plugin:react/recommended",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
+  "extends": ["plugin:react/recommended", "eslint:recommended", "plugin:@typescript-eslint/recommended"],
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module",
@@ -16,7 +12,7 @@
     }
   },
   "rules": {
-    "no-console": "error",
+    "no-console": "off",
     "no-debugger": "error",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off"

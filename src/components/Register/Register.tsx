@@ -178,7 +178,7 @@ export const Register: React.FC = () => {
           <div className='signup__wrapper'>
           <ReCAPTCHA
         sitekey="6LcFGicpAAAAAE8KhHQrMTrUsrhv9bQH4wsbojpx"
-        onChange={(value) => console.log("reCAPTCHA value:", value)}
+        onChange={handleCaptchaChange}
       />
           <button type="submit" className='signup__btn-signup'>SIGN UP</button>
           <div className='signup__or-container'>
