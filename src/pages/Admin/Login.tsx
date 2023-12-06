@@ -4,8 +4,8 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { auth } from "../../firebase/config"
-import { SuccessLogin } from 'components/PopUp/SuccessLogin';
-import { LoginFailed } from 'components/PopUp/LoginFailed';
+import { useNavigate } from 'react-router-dom';
+
 
 import '../../styles/Admin/LoginAdmin.css';
 
@@ -13,13 +13,13 @@ export const LoginAdmin: React.FC = () => {
     const [error, setError] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+    const navigate = useNavigate();
   
     const handleSingIn = (e: React.FormEvent) => {
       e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
           .then(() => {
-            setShowSuccessPopup(true);
+            navigate('/Dashboard');
           }).catch(() => {
             setError(true);
           })
@@ -61,8 +61,6 @@ export const LoginAdmin: React.FC = () => {
                     <button type="submit" className='loginAdmin__login-btn'>LOGIN</button>
             </form>
         </div>
-        {error && <LoginFailed/>}
-        { showSuccessPopup && <SuccessLogin /> }
     </>
     )
 }
