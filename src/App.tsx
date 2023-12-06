@@ -23,6 +23,8 @@ import { Dashboard } from 'pages/Admin/Dashboard';
 import User from 'pages/Admin/User';
 import Customer from 'pages/Admin/Customer';
 import Productlist from 'pages/Admin/Productlist';
+import  Newaddress  from 'pages/Newaddress';
+
 
 export const App: React.FC = () => {
   return (
@@ -53,6 +55,8 @@ export const App: React.FC = () => {
           <Route path='/admin/users' element={<User/>}/>
           <Route path='/admin/customers' element={<Customer />} />
           <Route path='/admin/productlist' element={<Productlist />} />
+          <Route path='/order/sent' element={<Sent />} />
+          <Route path='/newaddress' element={<Newaddress/>}/>
         </Routes>
       </Router>
     </>
