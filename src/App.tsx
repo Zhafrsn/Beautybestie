@@ -2,7 +2,7 @@ import React from 'react';
 import './styles/Global.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home';
-import { Checkout, Products } from 'pages';
+import { Checkout, DetailProduct, Products } from 'pages';
 import WishlistPage from './pages/Wishlist';
 import { Cart } from './pages/Cart';
 import { Login } from './components/Login/Login';
@@ -35,6 +35,7 @@ export const App: React.FC = () => {
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/chat' element={<ChatPage />} />
           <Route path="/address" element={<Address />} />
+          <Route path="/detailProduct/" element={<DetailProduct />} />
         </Routes>
       </Router>
     </>
