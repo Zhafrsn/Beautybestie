@@ -17,6 +17,7 @@ import Address from './pages/Address'
 import { NotPaid } from 'pages/Order/NotPaidPage';
 import { BeingPackaged } from 'pages/Order/BeingPackagedPage';
 import { Sent } from 'pages/Order/SentPage';
+import  Newaddress  from 'pages/Newaddress';
 
 
 export const App: React.FC = () => {
@@ -41,7 +42,8 @@ export const App: React.FC = () => {
           <Route path="/detailProduct/" element={<DetailProduct />} />
           <Route path='/order' element={<NotPaid/>}/>
           <Route path='/order/being-packaged' element={<BeingPackaged/>}/>
-          <Route path='/order/sent' element={<Sent/>}/>
+          <Route path='/order/sent' element={<Sent />} />
+          <Route path='/newaddress' element={<Newaddress/>}/>
         </Routes>
       </Router>
     </>
