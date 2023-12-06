@@ -1,6 +1,8 @@
 import { faBars, faBell, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from "../../../firebase/config"
 
 import '../../../styles/Admin/NavbarAdmin.css';
 
@@ -9,6 +11,8 @@ interface NavbarAdminProps {
 }
 
 const NavbarAdmin: React.FC<NavbarAdminProps> = ({ username }) => {
+  const [user] = useAuthState(auth);
+
   return (
     <div className="navbar-admin">
       <div className='navAdmin__left'>
@@ -23,8 +27,12 @@ const NavbarAdmin: React.FC<NavbarAdminProps> = ({ username }) => {
         </div>
         <div className="navAdmin-item">
           <FontAwesomeIcon icon={faUserCircle} />
-          <span>{username}</span>
-          <span>Admin</span> {/*sementara*/}
+          {/* <span>{username}</span> */}
+          {user ? (
+            <span>Admin {user.displayName}</span>
+          ) : (
+            <span>Admin...</span>
+          )}
         </div>
       </div>
     </div>

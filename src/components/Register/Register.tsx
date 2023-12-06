@@ -19,6 +19,11 @@ export const Register: React.FC = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+
+  const handleCaptchaChange = (value: string | null) => {
+    setCaptchaValue(value);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,7 +50,7 @@ export const Register: React.FC = () => {
   };
   const handleSingUp = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    if (captchaValue) { 
     if (password !== confirmPassword) {
       alert('Password and confirm password do not match');
       return;
@@ -73,9 +78,13 @@ export const Register: React.FC = () => {
     // Handle errors
     console.error(error);
     alert('Registration failed');
-  }
+      }
+    }
+    else {
+      console.error('Captcha not completed');
+    }
 };
-
+  
   return (
     <><Sidebar contentId="side-bar" isOpen={false} toggleSidebar={() => {}} />
       <Navbar />
@@ -169,7 +178,7 @@ export const Register: React.FC = () => {
           <div className='signup__wrapper'>
           <ReCAPTCHA
         sitekey="6LcFGicpAAAAAE8KhHQrMTrUsrhv9bQH4wsbojpx"
-        onChange={(value) => console.log("reCAPTCHA value:", value)}
+        onChange={handleCaptchaChange}
       />
           <button type="submit" className='signup__btn-signup'>SIGN UP</button>
           <div className='signup__or-container'>
