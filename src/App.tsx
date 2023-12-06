@@ -13,6 +13,7 @@ import Profile from './pages/Profile';
 import History from './pages/History';
 import { ProductCategory } from './pages/productCategory';
 import { ChatPage } from 'components/Chat/ChatPage';
+import Address from './pages/Address'
 
 
 export const App: React.FC = () => {
@@ -33,6 +34,7 @@ export const App: React.FC = () => {
           <Route path='/categoryProduct/:category' element={<ProductCategory />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/chat' element={<ChatPage />} />
+          <Route path="/address" element={<Address />} />
         </Routes>
       </Router>
     </>
