@@ -60,6 +60,11 @@
 .profile__container {
     display: flex;
     flex-direction: row;
+    width: 100%;
+}
+
+.profile__cont {
+    width: 72%;
 }
 
 .profile__container2 {
@@ -99,7 +104,7 @@
 
 .profile__title {
     align-items: center;
-    padding: 15px 0px 15px 180px;
+    padding: 15px 0px 15px 56px;
     color: white;
     font-size: xx-large;
     font-weight: bold;
@@ -107,7 +112,7 @@
 
 .profile__name {
     align-items: center;
-    padding: 10px 0px 0px 180px;
+    padding: 10px 0px 0px 56px;
     color: #FB6B9C;
     font-size: 20px;
     font-weight: bolder;
@@ -115,7 +120,7 @@
 
 .profile__email {
     align-items: center;
-    padding: 0px 0px 10px 180px;
+    padding: 0px 0px 10px 56px;
     color: #B9B9B9;
     font-weight: bolder;
 }
@@ -129,7 +134,7 @@
     display: flex;
     flex-direction: row;
     padding: 20px 55px 0px 55px;
-    gap: 450px;
+    gap: 200px;
 }
 
 .profile__container-sub1 {
@@ -145,6 +150,7 @@
     align-items: center;
     border-radius: 5px;
     font-size: 18px;
+    width: 400px;
 }
 
 .profile__button1 {
@@ -156,6 +162,8 @@
     border-radius: 5px;
     font-size: 18px;
     text-decoration: none;
+    width: 400px;
+    text-align: center;
 }
 
 .profile__button2 {
@@ -167,6 +175,8 @@
     border-radius: 5px;
     font-size: 18px;
     text-decoration: none;
+    width: 400px;
+    text-align: center;
 }
 
 .profile_button-text {
