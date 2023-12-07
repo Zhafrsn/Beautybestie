@@ -23,7 +23,6 @@ import { Dashboard } from 'pages/Admin/Dashboard';
 import User from 'pages/Admin/User';
 import Customer from 'pages/Admin/Customer';
 
-
 export const App: React.FC = () => {
   return (
     <>
