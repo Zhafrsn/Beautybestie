@@ -23,7 +23,6 @@ import { Dashboard } from 'pages/Admin/Dashboard';
 import User from 'pages/Admin/User';
 import Customer from 'pages/Admin/Customer';
 
-
 export const App: React.FC = () => {
   return (
     <>
@@ -50,8 +49,8 @@ export const App: React.FC = () => {
           {/* Route Admin */}
           <Route path='/Admin' element={<LoginAdmin/>}/>
           <Route path='/Dashboard' element={<Dashboard/>}/>
-          <Route path='/admin/user' element={<User/>}/>
-          <Route path='/admin/customer' element={<Customer/>}/>
+          <Route path='/admin/users' element={<User/>}/>
+          <Route path='/admin/customers' element={<Customer/>}/>
         </Routes>
       </Router>
     </>

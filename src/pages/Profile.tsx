@@ -4,16 +4,16 @@ import ProfileComp from "components/Profile/ProfileComp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
-export const navItems = [
+export const profileItems = [
   { label: 'Profile', href: '/profile', icon: <FontAwesomeIcon icon={faUserCircle} /> },
 ];
 
-const AboutUs: React.FC = () => {
+const Profile: React.FC = () => {
     return (
       <MainLayout>
        <div className="profile__container">
         <ProfileComp/>
-        <div>
+        <div className="profile__cont">
           {/* <FontAwesomeIcon icon={faUserCircle} className="profile__icon"/> */}
          <div className="profile__container2">
             <p className="profile__title">BeautyBestie</p>
@@ -73,4 +73,4 @@ const AboutUs: React.FC = () => {
     );
   };
   
-  export default AboutUs;
+  export default Profile;
