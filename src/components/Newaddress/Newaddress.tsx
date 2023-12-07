@@ -12,7 +12,7 @@ return (
         <div className="Newaddress-container">
             <p className='Newaddress-header'>New Address</p>
             <div className='Newaddress-input-items'>
-                <div className='Newaddress__inputs-container'>
+                <div className='Newaddress__inputs-container1'>
                     <label htmlFor="fullName" className='newaddress-label'>Full Name</label>
                     <div className='addnewaddress-button'>
                         <input
@@ -23,8 +23,8 @@ return (
                         />
                     </div>
                 </div>
-                <div className='Newaddress__inputs-container'>
-                    <label htmlFor='Phonenumber' className='Phonenumber-label'>Phone Number</label>
+                <div className='Newaddress__inputs-container2'>
+                    <label htmlFor='Phone number' className='Phonenumber-label'>Phone Number</label>
                     <div className='addnewaddress-button'>
                         <input
                             type="text"
@@ -34,8 +34,8 @@ return (
                         />
                     </div>
                 </div>
-                <div className='Newaddress__inputs-container'>
-                    <label htmlFor='ProvinceCityDistrictPostCode' className='ProvinceCityDistrictPostCode-label'>Province,City,District,PostCode</label>
+                <div className='Newaddress__inputs-container3'>
+                    <label htmlFor='Province, City District, PostCode' className='ProvinceCityDistrictPostCode-label'>Province, City District, PostCode</label>
                     <div className='addnewaddress-button'>
                         <input
                             type="text"
@@ -45,8 +45,8 @@ return (
                         />
                     </div>
                 </div>
-                <div className='Newaddress__inputs-container'>
-                    <label htmlFor='StreetnameBuildingHouseNumber' className='StreetnameBuildingHouseNumber-label'>StreetName,Building,HouseNumber</label>
+                <div className='Newaddress__inputs-container4'>
+                    <label htmlFor='Street name, Building, House Number' className='StreetnameBuildingHouseNumber-label'>StreetName, Building, HouseNumber</label>
                     <div className='addnewaddress-button'>
                         <input
                             type="text"
@@ -56,8 +56,8 @@ return (
                         />
                     </div>
                 </div>
-                <div className='Newaddress__inputs-container'>
-                    <label htmlFor='OthersDetails' className='OthersDetail-label'>Others Details</label>
+                <div className='Newaddress__inputs-container5'>
+                    <label htmlFor='OthersDetails' className='OthersDetail-label'>Others Details...</label>
                     <div className='addnewaddress-button'>
                         <input
                             type="text"
@@ -65,12 +65,24 @@ return (
                             className='namenewaddress-input'
                         />
                     </div>
+            </div>
+            <div>
+                <div className='Addnew__Container'>
+                    <button type="submit" className='Addnew__NewAddress__Btn'>+ Add New Address</button>
+                    </div>
                 </div>
-                <button type="submit" className='Addnew__NewAddress__Btn'>+ Add New Address</button>
-                <div className='Bottomsdetails__Newaddress'>
-                    <p className='BottomMarks'>Mark as:</p>
-                
+            <div className='Bottomsdetails__Newaddress'>
+            </div>
+            <div>
+                <p className='BottomMarks'>Mark as:</p>
                 </div>
+                <button type="button" className='Markas1__button'>Home</button>
+                <button type="button" className='Markas2__button'>Office</button>
+
+                <div className='later-okebutton'>
+                    <button type="button" className="Markas3__button">Later</button>
+                </div>
+                    <button type="button" className='Markas4__button'>oke</button>
             </div>
         </div>
     
