@@ -5,7 +5,7 @@ import '../../../styles/Admin/SidebarAdmin.css'
 
 export const siderbarItems = [
     { label: 'Dashboard', href: '/dashboard', icon: <FontAwesomeIcon icon={faGauge} /> },
-    { label: 'Products', href: '/admin/products', icon: <FontAwesomeIcon icon={faBoxArchive} /> },
+    { label: 'Products', href: '/admin/productlist', icon: <FontAwesomeIcon icon={faBoxArchive} /> },
     { label: 'Customers', href: '/admin/customers', icon: <FontAwesomeIcon icon={faUsers} /> },
     { label: 'Transactions', href: '/admin/transactions', icon: <FontAwesomeIcon icon={faCheckToSlot} /> },
     { label: 'Reports', href: '/admin/reports', icon: <FontAwesomeIcon icon={faChartColumn} />}
