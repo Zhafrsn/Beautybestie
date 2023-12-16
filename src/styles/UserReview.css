@@ -1,6 +1,7 @@
 .user_review{
   display: flex;
   flex-direction: column;
+  width: 100%;
   padding: 20px;
   border-radius: 5px;
   background-color: rgba(247, 247, 247, 1);
@@ -23,7 +24,7 @@
 }
 .ukuran{
   padding: 5px;
-  width: max-content;
+  width: 60px;
   border: 2px solid  rgba(153, 151, 152, 0.8) ;
   margin-bottom: 10px;
   border-radius: 5px ;
@@ -44,4 +45,28 @@
   object-fit: cover;
   border: 1px solid rgba(153, 151, 152, 0.8) ;
 } 
-
+@media screen and (max-width: 700px) {
+  .user_review{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .review, .ukuran, .left_top p, .top_user_review h3{
+    font-size: 15px;
+  }
+  .top_user_review{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .review{
+    width: 100%;
+  }
+}
+@media (min-width: 700px) and (max-width: 1024px){
+  .user_review{
+    width: 100%;
+  }
+}
