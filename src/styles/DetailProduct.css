@@ -129,7 +129,9 @@
   .UserReview_Card{
     width: 370%;
   }
-
+  .Judul_UserReview h1, .Pro_Rec h1{
+    font-size: 27px;
+  }
 }
 @media (min-width: 600px) and (max-width: 1024px){
   .Pro_Comp{
@@ -144,5 +146,26 @@
   }
   .UserReview_Card{
     width: 350%;
+  }
+  .Judul_UserReview h1, .Pro_Rec h1{
+    font-size: 30px;
+  }
+}
+@media (min-width:1024px) and (max-width: 1440px){
+  .Pro_Comp{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .big_card{
+    width: 100%;
+    height: 350px;
+    text-align: center;
+  }
+  .UserReview_Card{
+    width: 350%;
+  }
+  .Judul_UserReview h1, .Pro_Rec h1{
+    font-size: 30px;
   }
 }

@@ -93,3 +93,9 @@
     height: 400px;
   }
 }
+@media (min-width: 1024px) and (max-width: 1440px){
+  .product_Comp{
+    width: 100%;
+    height: 400px;
+  }
+}
