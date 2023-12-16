@@ -31,7 +31,7 @@ const AddProduct: React.FC<EditProduct> = ({ onClose }) => {
         <input id="Desc" className="input" type="text" placeholder=" " />
       </div>
       <button className="add-button">
-        Add
+        Edit
       </button>
       <button className="close-button" onClick={onClose}>
         Close
