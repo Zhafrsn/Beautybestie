@@ -1,21 +1,18 @@
-import Ads from "components/Ads/Ads";
 import { MainLayout } from "layout";
 import '../styles/Home.css';
 import Brand from '../components/Brand/Brand';
 import { BestSeller } from '../components/Best Seller/BestSeller';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { Products } from "./Products";
 import Category from '../components/Category/Category';
 import AboutUsComp from "components/AboutUs/AboutUsComp";
 import ImageSlider from "components/Ads/Ads";
-import { Settings } from "@mui/icons-material";
 
 export const Home: React.FC = () => {
   const adImages = [
     'images/image1.jpg',
     'images/image2.jpg',
     'images/image3.jpg',
-    'images/image4.jpg'
+    'images/image4.png'
   ];
   const brandImage = [
     { logo: 'images/logoSomethic.png' },
@@ -83,9 +80,7 @@ export const Home: React.FC = () => {
   return (
       <MainLayout>
         <div className="Ads">
-        {[adImages].map((image, index) => (
-          <ImageSlider key={index} images={image} />
-        ))}
+        <ImageSlider images={adImages} />
         </div>
         <div className="BestSeller">
           <h1>BEST SELLER</h1>

@@ -26,13 +26,13 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % images.length);
-    }, 2000); // Sesuaikan dengan kecepatan autoplay
-    
+    }, 2000);
+
     return () => clearInterval(interval);
   }, [images.length]);
 
   return (
-    <div style={{ position:'relative', zIndex: -1}}>
+    <div className='ads'>
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index}>
