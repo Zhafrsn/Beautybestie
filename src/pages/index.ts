@@ -6,6 +6,5 @@ export * from './AboutUs';
 export * from './History';
 export * from './Profile';
 export * from './_404';
-export * from './productCategory';
 export * from './Checkout';
 export * from './DetailProduct';
