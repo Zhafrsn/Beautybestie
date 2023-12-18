@@ -24,7 +24,6 @@ import User from 'pages/Admin/User';
 import Customer from 'pages/Admin/Customer';
 import Productlist from 'pages/Admin/Productlist';
 import  Newaddress  from 'pages/Newaddress';
-import  Newaddress  from 'pages/Newaddress';
 
 
 export const App: React.FC = () => {
