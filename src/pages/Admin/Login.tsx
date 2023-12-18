@@ -21,7 +21,8 @@ export const LoginAdmin: React.FC = () => {
           .then(() => {
             navigate('/Dashboard');
           }).catch(() => {
-            setError(true);
+              setError(true);
+              alert('Login Failed');
           })
         console.log('Email:', email);
         console.log('Password:', password);
