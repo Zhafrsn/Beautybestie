@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useEffect, useState } from 'react';
 import '../../styles/Navbar.css';
 import { Navitems } from './Navitems';
@@ -40,7 +41,7 @@ export const Navbar: React.FC = () => {
         </div>
       ) : (
         <>
-          <Navitems />
+          <Navitems onSearchChange={() => {}}/>
         </>
       )}
     </header>
