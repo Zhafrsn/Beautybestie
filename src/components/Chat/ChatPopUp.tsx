@@ -20,7 +20,7 @@ export const ChatPopUp: React.FC = () => {
     useEffect(() => {
         setMessages(['Hello girls, Welcome to BeautyBestie !', 
         'Here we sell some kind of skincare products']);
-    });
+    }, []);
 
     return (
         <div>
