@@ -1,13 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-console */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState } from 'react';
 import { Navbar } from "../Navbar/Navbar";
 import '../../styles/Register.css';
 import { Sidebar } from 'components/Sidebar';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { getFirestore, collection, addDoc, setDoc, doc } from 'firebase/firestore';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { getFirestore, setDoc, doc } from 'firebase/firestore';
 import { auth } from "../../firebase/config"
 import { useNavigate } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -18,72 +16,215 @@ export const Register: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const navigate = useNavigate();
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+
+  // State variables for input validation
+  const [fullNameError, setFullNameError] = useState<string | null>(null);
+  const [emailError, setEmailError] = useState<string | null>(null);
+  const [phoneNumberError, setPhoneNumberError] = useState<string | null>(null);
+  const [passwordError, setPasswordError] = useState<string | null>(null);
+  const [confirmPasswordError, setConfirmPasswordError] = useState<string | null>(null);
+
+  const [errorMessages, setErrorMessages] = useState<string[]>([]);
+  
+  const navigate = useNavigate();
 
   const handleCaptchaChange = (value: string | null) => {
     setCaptchaValue(value);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleGoogleSignIn = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      console.log('User signed in with Google:', user);
+    } catch (error) {
+      console.error('Google Sign-In error:', error);
+    }
+  };
+
+  const handleFullNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputText = e.target.value;
+    if (inputText.trim() === '') {
+      setFullNameError('Full name is required');
+    } else {
+      setFullNameError(null);
+    }
+    setFullName(inputText);
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputText = e.target.value;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(inputText.trim())) {
+      setEmailError('Invalid email address');
+    } else {
+      setEmailError(null);
+    }
+    setEmail(inputText);
+  };
+
+  const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputText = e.target.value;
+    const phoneRegex = /^[0-9]*$/;
+  
+    if (!phoneRegex.test(inputText)) {
+      setPhoneNumberError('Invalid phone number. Please enter digits only.');
+    } else {
+      setPhoneNumberError(null);
+      setPhoneNumber(inputText);
+    }
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputText = e.target.value;
+    if (inputText.length < 6) {
+      setPasswordError('Password must be at least 6 characters');
+    } else {
+      setPasswordError(null);
+    }
+    setPassword(inputText);
+  };
+
+  const handleConfirmPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputText = e.target.value;
+    if (inputText !== password) {
+      setConfirmPasswordError('Passwords do not match');
+    } else {
+      setConfirmPasswordError(null);
+    }
+    setConfirmPassword(inputText);
+  };
+
+  const validateForm = () => {
+    // Reset error messages
+    setFullNameError(null);
+    setEmailError(null);
+    setPhoneNumberError(null);
+    setPasswordError(null);
+    setConfirmPasswordError(null);
+
+    let isValid = true;
+
+    // Validate full name
+    if (fullName.trim() === '') {
+      setFullNameError('Full name is required');
+      isValid = false;
+    }
+
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      setEmailError('Invalid email address');
+      isValid = false;
+    }
+
+    // Validate phone number (you can customize the validation logic)
+    const phoneRegex = /^[0-9]+$/;
+    if (!phoneRegex.test(phoneNumber.trim()) || phoneNumber.trim().length !== 10) {
+      setPhoneNumberError('Invalid phone number');
+      isValid = false;
+    }
+
+    // Validate password
+    if (password.length < 6) {
+      setPasswordError('Password must be at least 6 characters');
+      isValid = false;
+    }
+
+    // Validate confirm password
+    if (confirmPassword !== password) {
+      setConfirmPasswordError('Passwords do not match');
+      isValid = false;
+    }
+
+    return isValid;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    handleSingUp(e);
+
+    // Perform form validation
+    const isFormValid = validateForm();
+
+    if (isFormValid && captchaValue) {
+      handleSingUp(e);
+    } else {
+      // Handle validation errors
+      // Clear previous error messages
+      setErrorMessages([]);
+
+      // Populate error messages
+      if (!isFormValid) {
+        setErrorMessages([
+          fullNameError || '',
+          emailError || '',
+          phoneNumberError || '',
+          passwordError || '',
+          confirmPasswordError || '',
+        ].filter(Boolean) as string[]);
+      }
+
+      if (errorMessages.length > 0) {
+        console.log('Error messages:', errorMessages);
+      }  
+
+    }
   };
 
   const [checked, setChecked] = useState(true);
   const [checked2, setChecked2] = useState(false);
 
   const handleChange = (event: {
-    preventDefault: any;
+    preventDefault: unknown;
     target: {
       id: string;
       checked: boolean;
     };
   }) => {
     const isChecked = event.target.checked;
-  
+
     if (event.target.id === "myCheckbox1") {
       setChecked(isChecked);
     } else if (event.target.id === "myCheckbox2") {
       setChecked2(isChecked);
     }
   };
+
   const handleSingUp = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (captchaValue) { 
-    if (password !== confirmPassword) {
-      alert('Password and confirm password do not match');
-      return;
-    }
-
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
-      await updateProfile(user, {
-      displayName: fullName,
-    });
-
-    // Save additional user information to Firestore
-    const db = getFirestore();
-    await setDoc(doc(db, 'userData', userCredential.user.uid), {
-      uid: user.uid,
-      displayName: fullName,
-      phoneNumber: phoneNumber,
-      // Add more fields as needed
-    });
-    console.log('Registration successful');
-      alert('Registration successful');
-      navigate('/login');
-  } catch (error) {
-    // Handle errors
-    console.error(error);
-    alert('Registration failed');
+    if (captchaValue) {
+      if (password !== confirmPassword) {
+        alert('Password and confirm password do not match');
+        return;
       }
-    }
-    else {
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        await updateProfile(user, {
+          displayName: fullName,
+        });
+
+        const db = getFirestore();
+        await setDoc(doc(db, 'userData', userCredential.user.uid), {
+          uid: user.uid,
+          displayName: fullName,
+          phoneNumber: phoneNumber,
+        });
+        console.log('Registration successful');
+        alert('Registration successful');
+        navigate('/login');
+      } catch (error) {
+        console.error(error);
+        alert('Registration failed');
+      }
+    } else {
       console.error('Captcha not completed');
     }
-};
+  };
+
   
   return (
     <><Sidebar contentId="side-bar" isOpen={false} toggleSidebar={() => {}} />
@@ -94,62 +235,77 @@ export const Register: React.FC = () => {
         <div className='signup-input-items'>
           <div className='signup__inputs-container'>
             <label htmlFor="fullName" className='signup-label'>Full Name</label>
+            {fullNameError && <div className="error-message small-error">{fullNameError}</div>}
             <div className='signup-button'>
               <input
                 type="text"
                 id="fullName"
                 placeholder='Your full name'
-                className='signup-input'
+                className={`signup-input ${fullNameError ? 'error' : ''}`}
                 value={fullName}
-                onChange={e => setFullName(e.target.value)} />
+                onChange={handleFullNameChange}
+                required
+              />
             </div>
           </div>
           <div className='signup__inputs-container'>
             <label htmlFor="email" className='signup-label'>Email</label>
+            {emailError && <div className="error-message small-error">{emailError}</div>}
             <div className='signup-button'>
               <input
                 type="email"
                 id="email"
                 placeholder='Your email'
-                className='signup-input'
+                className={`signup-input ${emailError ? 'error' : ''}`}
                 value={email}
-                onChange={e => setEmail(e.target.value)} />
+                onChange={handleEmailChange}
+                required
+                />
             </div>
           </div>
           <div className='signup__inputs-container'>
             <label htmlFor="phoneNumber" className='signup-label'>Phone Number</label>
+            {phoneNumberError && <div className="error-message small-error">{phoneNumberError}</div>}
             <div className='signup-button'>
               <input
                 type="text"
                 id="phoneNumber"
                 placeholder='Your phone number'
-                className='signup-input'
+                className={`signup-input ${phoneNumberError ? 'error' : ''}`}
                 value={phoneNumber}
-                onChange={e => setPhoneNumber(e.target.value)} />
+                onChange={handlePhoneNumberChange}
+                required
+                />
             </div>
           </div>
           <div className='signup__inputs-container'>
             <label htmlFor="password" className='signup-label'>Password</label>
+            {passwordError && <div className="error-message small-error">{passwordError}</div>}
             <div className='signup-button'>
               <input
-                type="password"
-                id="password"
-                placeholder='Your password'
-                className='signup-input'
-                value={password}
-                onChange={e => setPassword(e.target.value)} />
+                 type="password"
+                 id="password"
+                 placeholder='Your password'
+                 className={`signup-input ${passwordError ? 'error' : ''}`}
+                 value={password}
+                 onChange={handlePasswordChange}
+                 required
+                />
             </div>
           </div>
           <div className='signup__inputs-container'>
             <label htmlFor="confirmPassword" className='signup-label'>Confirm Password</label>
-            <div className='signup-button'>
+              {confirmPasswordError && <div className="error-message small-error">{confirmPasswordError}</div>}
+              <div className='signup-button'>
               <input
                 type="password"
                 id="confirmPassword"
-                placeholder='Confirm your password'  
-                className='signup-input'
+                placeholder='Confirm your password'
+                className={`signup-input ${confirmPasswordError ? 'error' : ''}`}
                 value={confirmPassword}
-                onChange={e => setConfirmPassword(e.target.value)}/>
+                onChange={handleConfirmPasswordChange}
+                required
+                />
             </div>
             <div className='signup-checkbox-wrapper'>
                 <div className='signup-checkbox'>
@@ -184,7 +340,10 @@ export const Register: React.FC = () => {
           <div className='signup__or-container'>
             <p className='signup-or'>or</p>
           </div>
-          <button className="signup__btn-signup-google">
+            <button
+              className="signup__btn-signup-google"
+              onClick={handleGoogleSignIn}
+            >
             <img src={'images/google-logo.png'} alt='logo-google' className='signup__google-logo'/>
             Continue with Google
           </button>

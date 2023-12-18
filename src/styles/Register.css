@@ -84,6 +84,10 @@
   color: #999798;
 }
 
+.checkbox{
+  cursor: pointer;
+}
+
 .signup-tc{
   color: #64C4EE;
   text-decoration: none;
@@ -106,6 +110,7 @@
   border: none;
   border-radius: 10px;
   width: 30%;
+  cursor: pointer;
 }
 
 .signup__btn-signup-google {
@@ -122,6 +127,7 @@
   width: 60%;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .signup__google-logo{

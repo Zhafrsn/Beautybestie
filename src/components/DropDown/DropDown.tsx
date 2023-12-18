@@ -9,15 +9,27 @@ interface Option{
 
 interface DropdownProps {
   options: Option[];
+  onSelect?: (selectedValue: string) => void;
 }
 
-export const Dropdown: React.FC<DropdownProps> = ({ options }) => {
+export const Dropdown: React.FC<DropdownProps> = ({ options, onSelect }) => {
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
 
   const handleOptionClick = (option: Option) => {
     setSelectedOption(option);
     setIsDropdownOpen(false);
+    if (onSelect) {
+      onSelect(option.value); 
+    } 
+  };
+
+  const handleAllClick = () => {
+    setSelectedOption(null); 
+    setIsDropdownOpen(false);
+    if (onSelect) {
+      onSelect('all'); 
+    }
   };
 
   const toggleDropdown = () => {
@@ -31,9 +43,16 @@ export const Dropdown: React.FC<DropdownProps> = ({ options }) => {
       </div>
       {isDropdownOpen && (
         <div className="dropdown-list">
+          <Link
+            to="/products"
+            className="dropdown-option"
+            onClick={handleAllClick}
+          >
+            All
+          </Link>
           {options.map((option) => (
             <Link
-              to='/products/${option.value}'
+              to={`/products/${option.label}`}
               key={option.value}
               className="dropdown-option"
               onClick={() => handleOptionClick(option)}

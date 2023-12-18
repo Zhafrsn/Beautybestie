@@ -1,13 +1,50 @@
 import { MainLayout } from "layout";
 import '../styles/Home.css';
 import Brand from '../components/Brand/Brand';
-import { BestSeller } from '../components/Best Seller/BestSeller';
-import { Navigate, useNavigate } from 'react-router-dom';
-import Category from '../components/Category/Category';
+import { useNavigate } from 'react-router-dom';
+import {Category} from '../components/Category/Category';
 import AboutUsComp from "components/AboutUs/AboutUsComp";
 import ImageSlider from "components/Ads/Ads";
+import { getAllProducts } from "../firebase/getAllProducts";
+import { TProduct } from "types/product.type";
+import { useEffect, useState } from "react";
+import { BestSeller } from "components/Best Seller";
+import '../styles/loading.css'
 
 export const Home: React.FC = () => {
+  const [Data, setData] = useState<TProduct[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getAllProducts();
+        setData(data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setError('Error fetching data. Please try again later.');
+        setLoading(false);
+      }
+    };
+  
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className='loading-spinner-container'>
+        <div className='loading-spinner'></div>
+      </div>
+    ); 
+  }
+
+  if (error) {
+    return <div className='error-message'>{error}</div>; 
+  }
+
   const adImages = [
     'images/image1.jpg',
     'images/image2.jpg',
@@ -32,49 +69,10 @@ export const Home: React.FC = () => {
 
   ];
 
-  const BestSellerData = [
-    {
-      title: 'Bright Stuff',
-      category: 'Face Wash',
-      Price: 'IDR 19.000',
-      imageUrl: 'images/FaceWash1.png',
-    },
-    {
-      title: 'Bright Stuff',
-      category: 'Face Wash',
-      Price: 'IDR 19.000',
-      imageUrl: 'images/FaceWash2.png',
-    },
-    {
-      title: 'Bright Stuff',
-      category: 'Face Wash',
-      Price: 'IDR 19.000',
-      imageUrl: 'images/FaceWash3.png',
-    },
-    {
-      title: 'Bright Stuff',
-      category: 'Face Wash',
-      Price: 'IDR 19.000',
-      imageUrl: 'images/FaceWash4.png',
-    },
-    {
-      title: 'Bright Stuff',
-      category: 'Face Wash',
-      Price: 'IDR 19.000',
-      imageUrl: 'images/FaceWash5.png',
-    },
-    {
-      title: 'Bright Stuff',
-      category: 'Face Wash',
-      Price: 'IDR 19.000',
-      imageUrl: 'images/FaceWash6.png',
-    },
-  ];
+  const bestSellerProducts = Data.filter((product) => product.bestSeller === true);
   
-  const navigate = useNavigate();
-
   const navigateToProducts = () => {
-    navigate('/Products'); // Alamat URL dari halaman produk
+    navigate('/Products'); 
   };
 
   return (
@@ -87,8 +85,8 @@ export const Home: React.FC = () => {
           <button onClick={navigateToProducts}>See All Product</button>
         </div>
         <div className="BestSellerCard">
-        {BestSellerData.map((card, index) => (
-          <BestSeller key={index} {...card} />
+        {bestSellerProducts.map((product, index) => (
+          <BestSeller key={index} {...product} />
         ))}
         </div>
         <div className="ProductBrand">
@@ -103,7 +101,7 @@ export const Home: React.FC = () => {
           <h1>CATEGORY</h1>
           <div className="CategoryImage">
             {categoryImage.map((card, index) => (  
-            <Category key={index} image={card.image} title={card.title} /> 
+            <Category key={index} {...card} /> 
             ))}
           </div>
         </div>

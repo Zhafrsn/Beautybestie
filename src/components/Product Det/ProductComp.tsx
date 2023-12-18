@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import '../../styles/ProductComp.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { TProduct } from 'types/product.type';
 
-export const ProductComp: React.FC = () => {
+export const ProductComp: React.FC<TProduct> = ({name, category, price}) => {
   const [itemCount, setItemCount] = useState(1);
   const handleIncrement = () => {
     setItemCount(itemCount + 1);
@@ -18,8 +19,8 @@ export const ProductComp: React.FC = () => {
   return (
     <div className='product_Comp'>
       <div className='product_Comp1'>
-        <h1>Emina Bright Stuff Toner</h1>
-        <p>Toner</p>
+        <h1>{name}</h1>
+        <p>{category}</p>
         <div className='star'>
           <FontAwesomeIcon icon={faStar} style={{ color: "#ffd43b", }} />
           <FontAwesomeIcon icon={faStar} style={{ color: "#ffd43b", }} />
@@ -28,7 +29,7 @@ export const ProductComp: React.FC = () => {
           <FontAwesomeIcon icon={faStar} style={{color: "#ffd43b",}} />
         </div>
       </div>
-      <h2>IDR 69.000</h2>
+      <h2>{`IDR ${price}`}</h2>
       <div className='product_Comp_btn'>
         <div className='product_comp_btnitem'>
           <button onClick={handleDecrement}>-</button>

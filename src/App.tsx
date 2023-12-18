@@ -2,7 +2,7 @@ import React from 'react';
 import './styles/Global.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home';
-import { Checkout, DetailProduct, Products } from 'pages';
+// import {DetailProduct} from 'pages';
 import WishlistPage from './pages/Wishlist';
 import { Cart } from './pages/Cart';
 import { Login } from './components/Login/Login';
@@ -11,7 +11,6 @@ import AboutUs from './pages/AboutUs';
 import _404 from './pages/_404';
 import Profile from './pages/Profile';
 import History from './pages/History';
-import { ProductCategory } from './pages/productCategory';
 import { ChatPage } from 'components/Chat/ChatPage';
 import Address from './pages/Address'
 import { NotPaid } from 'pages/Order/NotPaidPage';
@@ -23,6 +22,8 @@ import { Dashboard } from 'pages/Admin/Dashboard';
 import User from 'pages/Admin/User';
 import Customer from 'pages/Admin/Customer';
 import Productlist from 'pages/Admin/Productlist';
+import { Products } from 'pages/Products';
+import { Checkout, DetailProduct } from 'pages';
 
 export const App: React.FC = () => {
   return (
@@ -31,6 +32,7 @@ export const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/:category" element={<Products />} />
           <Route path="/wishlist" element={<WishlistPage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
@@ -39,11 +41,10 @@ export const App: React.FC = () => {
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/history" element={<History />} />
-          <Route path='/categoryProduct/:category' element={<ProductCategory />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/chat' element={<ChatPage />} />
           <Route path="/address" element={<Address />} />
-          <Route path="/detailProduct/" element={<DetailProduct />} />
+          <Route path="/product-detail/:id" element={<DetailProduct />} />
           <Route path='/order' element={<NotPaid/>}/>
           <Route path='/order/being-packaged' element={<BeingPackaged/>}/>
           <Route path='/order/sent' element={<Sent/>}/>

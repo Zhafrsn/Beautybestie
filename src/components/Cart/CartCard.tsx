@@ -1,45 +1,37 @@
 import React from 'react';
 import '../../styles/Cart.css';
-// import { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-interface CartCardProps{
-  title: string;
+interface CartCardProps {
+  name: string;
+  image: string;
   price: number;
   quantity: number;
   onIncreaseQuantity: () => void;
   onDecreaseQuantity: () => void;
-  // onRemoveFromCart: () => void;
-  // onMoveToFavorites: () => void;
 }
 
 export const CartCard: React.FC<CartCardProps> = ({
-  // title,
-  // price,
+  name,
+  image,
+  price,
   quantity,
   onIncreaseQuantity,
   onDecreaseQuantity,
   // onRemoveFromCart,
+  // onMoveToWishlist,
 }) => {
-  const Subtotal = (85000 * quantity);
-
-  // const handleRemoveFromCart = () => {
-  //   if (fakeCartData.products.length - 1 === 0) {
-  //     onRemoveFromCart();
-  //   } else {
-  //     onRemoveFromCart();
-  //   }
-  // };
+  const Subtotal = price * quantity;
 
   return (
       <div className='cartCard__items-container'>
         <div className='cartCard__product'>
-          <img className='cartCard__product-img' src='/images/FaceWash1.png' alt='img'/>
+        <img className='cartCard__product-img' src={image} alt={name} />
           <div className='cartCard__product-detail'>
-            <p className='cartCard__Product-header'>Bright Stuff Face Wash</p>
-            <p className='cartCard__Product-price'>Price : IDR 85.000</p>
-          <p className='cartCard__Product-subtotal'>Subtotal: IDR {Subtotal}</p>
+          <p className='cartCard__Product-header'>{name}</p>
+          <p className='cartCard__Product-price'>Price : {`IDR ${price}`}</p>
+          <p className='cartCard__Product-subtotal'>Subtotal: {`IDR ${Subtotal}`}</p>
           </div>
         </div>
         <hr/>

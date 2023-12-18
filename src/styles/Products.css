@@ -1,16 +1,17 @@
 .Products-Card-Container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
   justify-content: space-around;
   align-items: flex-start;
-  max-width: 1000px;
-  margin: 0 auto;
   padding-bottom: 20px;
+  margin: 0px 90px;
 }
 
 .productsPage-container{
   z-index: 0;
 }
+
 .Products-Judul {
   display: flex;
   padding: 60px;
@@ -44,3 +45,4 @@
 .products-option-title{
   padding-top: 8px;
 }
+

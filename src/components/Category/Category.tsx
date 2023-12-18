@@ -6,7 +6,7 @@ interface CardProps {
  title: string;
 }
 
-const Brand: React.FC<CardProps> = ({ image, title}) => {
+export const Category: React.FC<CardProps> = ({ image, title}) => {
  return (
     <div className="cardCategory">
       <img className="imageCategory" src={image} alt="image" />
@@ -14,5 +14,3 @@ const Brand: React.FC<CardProps> = ({ image, title}) => {
     </div>
  );
 };
-
-export default Brand;
