@@ -74,10 +74,16 @@
   width: 100%;
 }
 
+.small-error {
+  color: red;
+  font-size: 12px; 
+}
+
 .login__forgot-pw {
   color: #eca4b0;
   font-size: 14px;
   text-align: right;
+  cursor: pointer;
 }
 
 .login__wrapper {
@@ -97,6 +103,7 @@
   border: none;
   border-radius: 10px;
   width: 30%;
+  cursor: pointer;
 }
 
 .login__btn-login-google {
@@ -113,6 +120,7 @@
   width: 60%;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .login__google-logo {

@@ -1,26 +1,27 @@
 .Pro_Comp{
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  gap: 50px;
   padding: 10px;
-  margin-top: 30px;
+  width: 100%;
+  margin: 30px 0px;
 }
+
 .card_left{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 10px;
-  margin-top: 30px;
   width: 100%;
 }
+
 .big_card{
   width: 850px;
   height: 350px;
   align-items: center;
   border: 1px solid  rgba(153, 151, 152, 0.8) ;
 }
-.big_card img{
+
+.big_card-img{
   width: 100%;
   height: 350px;
   object-fit: contain;
@@ -30,7 +31,7 @@
   padding: 10px;
   gap:30px;
 }
-.small_card img{
+.small_card1{
   width: 100%;
   height: 150px;
   object-fit: contain;
@@ -45,7 +46,6 @@
   justify-content: space-between;
   width: 100%;
   padding: 30px;
-  margin-top: 10px;
 }
 
 .desc_product{
