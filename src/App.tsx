@@ -16,6 +16,7 @@ import Address from './pages/Address'
 import { NotPaid } from 'pages/Order/NotPaidPage';
 import { BeingPackaged } from 'pages/Order/BeingPackagedPage';
 import { Sent } from 'pages/Order/SentPage';
+import { Notification } from 'pages/Notification';
 // Admin
 import { LoginAdmin } from 'pages/Admin/Login';
 import { Dashboard } from 'pages/Admin/Dashboard';
@@ -48,6 +49,7 @@ export const App: React.FC = () => {
           <Route path='/order' element={<NotPaid/>}/>
           <Route path='/order/being-packaged' element={<BeingPackaged/>}/>
           <Route path='/order/sent' element={<Sent/>}/>
+          <Route path='/notification' element={<Notification/>}/>
           {/* Route Admin */}
           <Route path='/Admin' element={<LoginAdmin/>}/>
           <Route path='/Dashboard' element={<Dashboard/>}/>
