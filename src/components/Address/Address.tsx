@@ -43,6 +43,18 @@ export const AddressComponent: React.FC = () => {
     setPrimaryAddress(address);
  };
  return (
+    <div>
+     <table>
+     <button className="Address__AddnewaddressBTN" onClick={() => console.log('Add new address')}>+ Add New Address</button>
+       
+       <thead>
+         
+                 <tr>
+                 
+
+          </tr>
+        </thead>
+        <tbody>
    <div>
      <div className='Address-Container'>
      <div className='Address-TitleDanBtnNew'>
