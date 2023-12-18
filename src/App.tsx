@@ -24,6 +24,7 @@ import User from 'pages/Admin/User';
 import Customer from 'pages/Admin/Customer';
 import Productlist from 'pages/Admin/Productlist';
 import  Newaddress  from 'pages/Newaddress';
+import  Newaddress  from 'pages/Newaddress';
 
 
 export const App: React.FC = () => {
@@ -48,6 +49,8 @@ export const App: React.FC = () => {
           <Route path="/detailProduct/" element={<DetailProduct />} />
           <Route path='/order' element={<NotPaid/>}/>
           <Route path='/order/being-packaged' element={<BeingPackaged/>}/>
+          <Route path='/order/sent' element={<Sent />} />
+          <Route path='/newaddress' element={<Newaddress/>}/>
           <Route path='/order/sent' element={<Sent/>}/>
           {/* Route Admin */}
           <Route path='/Admin' element={<LoginAdmin/>}/>
