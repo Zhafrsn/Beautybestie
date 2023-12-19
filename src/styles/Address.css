@@ -87,3 +87,40 @@
 .Address-Icon{
   color: #eca4b0;
 }
+
+.AddNewAddressModal {
+  border: 2px solid #cccccc;
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 5%;
+
+  /* Centering vertically */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.Colummn {
+  display: flex;
+  flex-direction: column;
+}
+
+.BtnSUBCAN{
+  display: flex;
+  justify-content: end;
+}
+
+.BtnSUBCAN button {
+  display: flex;
+  background-color: #eca4b0;
+  margin-top: 20px;
+  margin-right: 2px;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-weight: bold;
+}
