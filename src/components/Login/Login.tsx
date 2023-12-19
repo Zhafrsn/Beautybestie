@@ -2,14 +2,16 @@
 /* eslint-disable no-console */
 import '../../styles/Login.css';
 import { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { auth } from "../../firebase/config"
+import { auth, db } from "../../firebase/config"
 import { Navbar } from 'components/Navbar';
 import { Sidebar } from 'components/Sidebar';
 import { SuccessLogin } from 'components/PopUp/SuccessLogin';
 import { LoginFailed } from 'components/PopUp/LoginFailed';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { loginUser } from '../../firebase/user';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 
 export const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -23,6 +25,8 @@ export const Login: React.FC = () => {
 
   const [errorMessages, setErrorMessages] = useState<string[]>([]);
 
+  const navigate = useNavigate();
+
   const handleCaptchaChange = (value: string | null) => {
     setCaptchaValue(value);
   };
@@ -32,25 +36,65 @@ export const Login: React.FC = () => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
+  
+      if (!user.emailVerified) {
+        console.warn('User email is not verified. Please check your email for a verification link.');
+        return { success: false, message: 'Email not verified. Please check your email for a verification link.' };
+      }
+  
+      const userDocRef = doc(db, 'userData', user.uid);
+      const userDocSnapshot = await getDoc(userDocRef);
+  
+      if (!userDocSnapshot.exists()) {
+        const userData = {
+          uid: user.uid,
+          displayName: user.displayName || '',
+          email: user.email || '',
+          photoURL: user.photoURL || '',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        };
+  
+        await setDoc(userDocRef, userData);
+      }
       console.log('User signed in with Google:', user);
+      navigate('/');
+      return { success: true, message: 'Login successful', userData: user };
     } catch (error) {
       console.error('Google Sign-In error:', error);
+      return { success: false, message: 'Google Sign-In failed' };
     }
   };
 
-  const handleSingIn = (e: React.FormEvent) => {
+  const handleSingIn = async (e: React.FormEvent) => {
     e.preventDefault();
     if (captchaValue) {
-      signInWithEmailAndPassword(auth, email, password)
-        .then(() => {
+      const loginData = {
+        email,
+        password,
+      };
+
+      try {
+        const loginResult = await loginUser(auth, loginData);
+
+        if (loginResult.success) {
           setShowSuccessPopup(true);
-        }).catch(() => {
-          setError(true);
-        })
+          console.log('User data:', loginResult.userData);
+        } else {
+          if (loginResult.message === 'Email not verified. Please check your email for a verification link.') {
+            setErrorMessages([loginResult.message]);
+          } else {
+            setError(true);
+            console.error(loginResult.message);
+          }
+        }
+      } catch (error) {
+        console.error('Error during login:', error);
+      }
+
       console.log('Email:', email);
       console.log('Password:', password);
-    }
-    else {
+    } else {
       console.error('Captcha not completed');
     }
   };
@@ -107,11 +151,8 @@ export const Login: React.FC = () => {
     if (isFormValid && captchaValue) {
       handleSingIn(e);
     } else {
-      // Handle validation errors
-      // Clear previous error messages
       setErrorMessages([]);
 
-      // Populate error messages
       if (!isFormValid) {
         setErrorMessages([
           emailError || '',
