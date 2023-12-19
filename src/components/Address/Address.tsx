@@ -40,6 +40,7 @@ export const AddressComponent: React.FC = () => {
   }, [addresses]);
 
   const setAsPrimary = (address: Address) => {
+  const setAsPrimary = (address: Address) => {
     setPrimaryAddress(address);
   };
 
@@ -149,7 +150,80 @@ export const AddressComponent: React.FC = () => {
           <button type="button" onClick={handleAddNewAddress} className="submitBtn">
             Ok
           </button>
+            onDelete={() => handleDeleteAddress(address)}
+          />
+        ))}
+      </div>
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+        <div className="AddNewAddressModal">
+          <h2>Add New Address</h2>
+          <form className="Colummn">
+            <label htmlFor="fullName">Full Name:</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              value={newAddress.fullName}
+              onChange={(e) => setNewAddress({ ...newAddress, fullName: e.target.value })}
+            />
+  
+            <label htmlFor="phoneNumber">Phone Number:</label>
+            <input
+              type="text"
+              id="phoneNumber"
+              name="phoneNumber"
+              value={newAddress.phoneNumber}
+              onChange={(e) => setNewAddress({ ...newAddress, phoneNumber: e.target.value })}
+            />
+  
+            <label htmlFor="streetAddress">Street Address:</label>
+            <input
+              type="text"
+              id="streetAddress"
+              name="streetAddress"
+              value={newAddress.streetAddress}
+              onChange={(e) => setNewAddress({ ...newAddress, streetAddress: e.target.value })}
+            />
+  
+            <label htmlFor="city">City:</label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              value={newAddress.city}
+              onChange={(e) => setNewAddress({ ...newAddress, city: e.target.value })}
+            />
+  
+            <label htmlFor="region">Region:</label>
+            <input
+              type="text"
+              id="region"
+              name="region"
+              value={newAddress.region}
+              onChange={(e) => setNewAddress({ ...newAddress, region: e.target.value })}
+            />
+  
+            <label htmlFor="postalCode">Postal Code:</label>
+            <input
+              type="text"
+              id="postalCode"
+              name="postalCode"
+              value={newAddress.postalCode}
+              onChange={(e) => setNewAddress({ ...newAddress, postalCode: e.target.value })}
+            />
+          </form>
+        <div className="BtnSUBCAN">
+          <button onClick={closeModal} className="cancelBtn">
+            Later
+          </button>
+          <button type="button" onClick={handleAddNewAddress} className="submitBtn">
+            Ok
+          </button>
         </div>
+        </div>
+      </Modal>
+    </div>
+  );
         </div>
       </Modal>
     </div>
@@ -161,8 +235,34 @@ interface AddressRowProps {
   isPrimary: boolean;
   setAsPrimary: (address: Address) => void;
   onDelete: () => void;
+  address: Address;
+  isPrimary: boolean;
+  setAsPrimary: (address: Address) => void;
+  onDelete: () => void;
 }
 
+const AddressRow: React.FC<AddressRowProps> = ({ address, isPrimary, setAsPrimary, onDelete }) => {
+  return (
+    <div className="Address-MenuAlamat1">
+      <div className="Address-Alamat1">
+        <div className="Address-NamaNomor">
+          <p className="Address-FullName">{address.fullName}</p>
+          <hr />
+          <p className="Address-PhoneNumber">{address.phoneNumber}</p>
+        </div>
+        <p>
+          {address.streetAddress} {address.city} {address.region} {address.postalCode}
+        </p>
+        <button className="Address-Primary" onClick={() => setAsPrimary(address)}>
+          {isPrimary ? 'Primary' : 'Set as Primary'}
+        </button>
+      </div>
+      <div className="Address-Icons">
+        <FontAwesomeIcon icon={faEdit} className="Address-Icon" />
+        <FontAwesomeIcon icon={faTrash} className="Address-Icon" onClick={onDelete} />
+      </div>
+    </div>
+  );
 const AddressRow: React.FC<AddressRowProps> = ({ address, isPrimary, setAsPrimary, onDelete }) => {
   return (
     <div className="Address-MenuAlamat1">
