@@ -33,12 +33,10 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Layout } from './layout';
 
-// type PhoneNumber = `${bigint}`;
-
 type Customers = { 
     no: number;
     name: string;
-    phone: string | number;
+    phone: string;
     email: string;
     address: string;
 };
@@ -88,7 +86,7 @@ const columns = useMemo<MRT_ColumnDef<Customers>[]>(
         enableEditing: true,
         size: 80,
         muiEditTextFieldProps: {
-            type: 'string',
+            type: 'number',
             validate: (value: string) => /^\d+$/.test(value) ? undefined : 'Invalid phone number',
             error: !!validationErrors?.phone,
             helperText: validationErrors?.phone,
