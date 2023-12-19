@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React from 'react';
+import { useState } from 'react';
+import '../../styles/Address.css';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Modal from 'react-modal';
@@ -38,119 +41,25 @@ export const AddressComponent: React.FC = () => {
 
   const setAsPrimary = (address: Address) => {
     setPrimaryAddress(address);
-  };
-
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
-
-  const handleAddNewAddress = () => {
-    setAddresses((prevAddresses) => [...prevAddresses, newAddress]);
-    closeModal();
-  };
-
-  const handleDeleteAddress = (addressToDelete: Address) => {
-    setAddresses((prevAddresses) => prevAddresses.filter((address) => address !== addressToDelete));
-  };
-
-  return (
-    <div className="AddressComponent">
-      <table>
-        <thead>
-          <tr>{/* ... your table header content ... */}</tr>
-        </thead>
-      </table>
-      <div className="Address-Container">
-        <div className="Address-TitleDanBtnNew">
-          <h1>Address</h1>
-          <button className="Address-BtnNewAddress" onClick={openModal}>
-            + Add New Address
-          </button>
-        </div>
-        {addresses.map((address) => (
-          <AddressRow
-            key={address.phoneNumber}
-            address={address}
-            isPrimary={address === primaryAddress}
-            setAsPrimary={setAsPrimary}
-            onDelete={() => handleDeleteAddress(address)}
-          />
-        ))}
-      </div>
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
-        <div className="AddNewAddressModal">
-          <h2>Add New Address</h2>
-          <form className="Colummn">
-            <label htmlFor="fullName">Full Name:</label>
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              value={newAddress.fullName}
-              onChange={(e) => setNewAddress({ ...newAddress, fullName: e.target.value })}
-            />
-  
-            <label htmlFor="phoneNumber">Phone Number:</label>
-            <input
-              type="text"
-              id="phoneNumber"
-              name="phoneNumber"
-              value={newAddress.phoneNumber}
-              onChange={(e) => setNewAddress({ ...newAddress, phoneNumber: e.target.value })}
-            />
-  
-            <label htmlFor="streetAddress">Street Address:</label>
-            <input
-              type="text"
-              id="streetAddress"
-              name="streetAddress"
-              value={newAddress.streetAddress}
-              onChange={(e) => setNewAddress({ ...newAddress, streetAddress: e.target.value })}
-            />
-  
-            <label htmlFor="city">City:</label>
-            <input
-              type="text"
-              id="city"
-              name="city"
-              value={newAddress.city}
-              onChange={(e) => setNewAddress({ ...newAddress, city: e.target.value })}
-            />
-  
-            <label htmlFor="region">Region:</label>
-            <input
-              type="text"
-              id="region"
-              name="region"
-              value={newAddress.region}
-              onChange={(e) => setNewAddress({ ...newAddress, region: e.target.value })}
-            />
-  
-            <label htmlFor="postalCode">Postal Code:</label>
-            <input
-              type="text"
-              id="postalCode"
-              name="postalCode"
-              value={newAddress.postalCode}
-              onChange={(e) => setNewAddress({ ...newAddress, postalCode: e.target.value })}
-            />
-          </form>
-        </div>
-        <div className="BtnSUBCAN">
-          <button type="button" onClick={handleAddNewAddress} className="submitBtn">
-            Ok
-          </button>
-          <button onClick={closeModal} className="cancelBtn">
-            Later
-          </button>
-        </div>
-      </Modal>
+ };
+ return (
+  <div className='Address-Container'>
+    <div className='Address-TitleDanBtnNew'>
+      <h1>Address</h1>
+      <button className='Address-BtnNewAddress' onClick={() => console.log('Add new address')}>+ Add New Address</button>
     </div>
-  );
+    <div className='list-address'>
+      {addresses.map((address) => (
+      <AddressRow
+        key={address.phoneNumber}
+        address={address}
+        isPrimary={address === primaryAddress}
+        setAsPrimary={setAsPrimary}
+        />
+      ))}
+    </div>
+  </div>
+ );
 };
 
 interface AddressRowProps {
