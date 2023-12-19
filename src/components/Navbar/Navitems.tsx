@@ -18,7 +18,7 @@ export const navItems = [
   { label: 'About Us', href: '/aboutUs', icon: <FontAwesomeIcon icon={faInfoCircle} /> },
 ];
 
-export const Navitems: React.FC<NavitemsProps> = ({onSearchChange}) => {
+export const Navitems: React.FC<NavitemsProps> = ({ onSearchChange }) => {
   const [user] = useAuthState(auth);
   const [isProfileOpen, setIsProfileOpen] = useState<boolean>(false);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!user);

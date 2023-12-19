@@ -59,7 +59,7 @@ export const Home: React.FC = () => {
   ];
 
   const categoryImage = [
-    { image: 'images/facewash.jpg', title: 'Face Wash' },
+    { image: 'images/facewash.jpg', title: 'Face Wash'},
     { image: 'images/toner.jpg', title: 'Toner' },
     { image: 'images/serum.png', title: 'Serum' },
     { image: 'images/moist.jpg', title: 'Moisturizer' },
