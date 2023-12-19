@@ -17,10 +17,15 @@
   align-self: flex-end;
   color: #ccc;
   font-size: 25px;
+  cursor: pointer;
 }
 
 .productCard-heart:hover{
-    color: red;
+    color: #eca4b0;
+}
+
+.productCard-heart.in-wishlist{
+  color: #eca4b0;
 }
 
 .productsCard-detail {
@@ -71,3 +76,28 @@
   cursor: pointer;
 }
 
+@media (max-width: 426px) {
+  .Products-Card{
+    min-height: fit-content;
+  }  
+  
+  .productsCard-detail{
+    align-items: center;
+  }
+
+  /* .productCard-title{
+    text-align: center;
+  } */
+
+  .productCard-title,
+  .productCard-category,
+  .productCard-price{
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+  }
+  .ProductsCard-img{
+    width: 100px;
+    height: 100px;
+  }
+}
