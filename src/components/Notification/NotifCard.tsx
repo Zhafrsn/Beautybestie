@@ -14,7 +14,6 @@ export const Notificationcard: React.FC<NotifProps> = ({ imageUrl, text1, text2 
       <div>
         <p className='NotifCard-text1'>{text1}</p>
         <p className='NotifCard-text2'>{text2}</p>
-        <p></p>
       </div>
     </div>
   );
