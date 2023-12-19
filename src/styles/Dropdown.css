@@ -1,9 +1,8 @@
 .dropdown {
   display: inline-block;
-  margin-right: 10px; /* Adjust the margin as needed */
+  margin-right: 10px; 
 }
 
-/* Style for the header of the dropdown */
 .dropdown-header {
   padding: 10px;
   cursor: pointer;
@@ -12,7 +11,6 @@
   border-radius: 5px;
 }
 
-/* Style for the dropdown list */
 .dropdown-list {
   top: 100%;
   left: 0;
@@ -25,7 +23,6 @@
   border-top: none;
 }
 
-/* Style for individual options in the dropdown list */
 .dropdown-option {
   padding: 10px;
   cursor: pointer;
@@ -34,8 +31,13 @@
   color: #999798;
 }
   
-/* Hover effect on dropdown options */
 .dropdown-option:hover {
   background-color: #eca4b0;
   color: white;
+}
+
+@media (max-width: 426px) {
+  .dropdown-header{
+    width: 120px;
+  }
 }

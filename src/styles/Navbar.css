@@ -37,6 +37,9 @@
 .navbar__navitem:hover{
     font-weight: bold;
 }
+.navbar__navitem.active{
+    font-weight: bold;
+}
 
 .navbar__title{
     font-weight: bold;

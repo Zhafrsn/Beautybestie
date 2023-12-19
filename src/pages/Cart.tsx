@@ -3,16 +3,16 @@ import { CartCard } from "../components/Cart/CartCard"
 import "../styles/Cart.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getProductById } from "../firebase/getProductById";
-import { TCart } from "../types/cart.type";
-// import { addToCart, fetchCartData } from "../firebase/cart";
 import { EmptyCart } from "../components/Cart/EmptyCart";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { TWishlist } from "../types/wishlist.type";
+import { useCartItems } from "../firebase/cart";
 
 export const Cart: React.FC = () => {
     const [quantity, setQuantity] = useState(1);
     const navigate = useNavigate()
-    const [cartItems, setCartItems] = useState<TCart[]>([]);
-    // const [productsInCart, setProductsInCart] = useState<any[]>([]);
+    const [cartItems, setCartItems] = useState<TWishlist[]>([]);
+    const [userId, setUserId] = useState<string>('');
     
     const increaseQuantity = () => {
         setQuantity(quantity + 1);
@@ -24,50 +24,29 @@ export const Cart: React.FC = () => {
         }
     };
     
-    // const totalPrice = (Subtotal * quantity);
-    
     const handleBuy = () => {
         navigate('/checkout');
     };
-    
-    useEffect(() => {
-        const fetchCartProducts = async () => {
-            try {
-                const productDetailsPromises = cartItems.map(async (cartItem) => {
-                    const productData = await getProductById(cartItem.product.id);
-                    console.log('Product Data:', productData);
+    const cartData = useCartItems(userId);
 
-                    return {
-                        id: cartItem.id,
-                        product: {
-                            id: productData.id,
-                            bestSeller: productData.bestSeller,
-                            brand: productData.brand,
-                            category: productData.category,
-                            description: productData.description,
-                            image: productData.image,
-                            name: productData.name,
-                            price: productData.price,
-                            stock: productData.stock,
-                        },
-                        quantity: cartItem.quantity,
-                        createdAt: cartItem.createdAt,
-                        updatedAt: cartItem.updatedAt,
-                    };
-                });
-      
-                const updatedCart = await Promise.all(productDetailsPromises);
-                if (JSON.stringify(cartItems) !== JSON.stringify(updatedCart)) {
-                    setCartItems(updatedCart);
-                  }
-                } catch (error) {
-                  console.error('Error fetching cart product data:', error);
-                }
-              };
-      
-        fetchCartProducts();
-    }, [cartItems]);
-      
+    useEffect(() => {
+        const auth = getAuth()
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+          if (user) {
+            setUserId(user.uid);  
+            setCartItems(cartData);
+          } else {
+              setUserId('');
+              setCartItems([]);
+          }
+        });
+        
+        return () => unsubscribe();
+    }, [cartData, userId]);
+
+    const totalPrice = cartItems.reduce((total, item) => {
+        return total + item.productPrice * (quantity || 1); 
+    }, 0);
       
     return (
         <MainLayout>
@@ -81,15 +60,19 @@ export const Cart: React.FC = () => {
                 ) : (
                     <div className="cartCard__container">
                         <div className="cartCard__products-item">
-                            {cartItems.map((cart) => (
+                            {cartItems.map((item) => (
                                 <CartCard
-                                    key={cart.id}
-                                    name={cart.product.name}
-                                    image={cart.product.image}
-                                    price={cart.product.price}
+                                    key={item.productId}
+                                    productId={item.productId}
+                                    productName={item.productName}
+                                    productPrice={item.productPrice}
+                                    productImage={item.productImage}
+                                    createdAt={item.createdAt}
+                                    updatedAt={item.updatedAt}
                                     quantity={quantity}
                                     onIncreaseQuantity={increaseQuantity}
                                     onDecreaseQuantity={decreaseQuantity}
+                                    onRemoveFromCart={() => ({})}
                                 />
                             ))}
                         </div>
@@ -98,7 +81,7 @@ export const Cart: React.FC = () => {
                             <hr />
                             <div className='cartCard__Totalorders'>
                                 <p>Total Orders</p>
-                                {/* <p>IDR {totalPrice}</p> */}
+                                <p>IDR {totalPrice}</p>
                             </div>
                             <button className='cartCard_buy-btn' onClick={handleBuy}>Buy</button>
                         </div>
@@ -108,3 +91,4 @@ export const Cart: React.FC = () => {
         </MainLayout>
     );
 };
+

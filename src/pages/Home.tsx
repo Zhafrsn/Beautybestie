@@ -76,13 +76,14 @@ export const Home: React.FC = () => {
   };
 
   return (
-      <MainLayout>
+    <MainLayout>
+      <div className="home-wrapper">
         <div className="Ads">
-        <ImageSlider images={adImages} />
+          <ImageSlider images={adImages} />
         </div>
         <div className="BestSeller">
           <h1>BEST SELLER</h1>
-          <button onClick={navigateToProducts}>See All Product</button>
+          <button onClick={navigateToProducts} className="bestSeller-btn">See All Product</button>
         </div>
         <div className="BestSellerCard">
         {bestSellerProducts.map((product, index) => (
@@ -108,6 +109,7 @@ export const Home: React.FC = () => {
         <div className="AboutUs">
           <AboutUsComp  />  
         </div>    
+      </div>
       </MainLayout>
   );
 };

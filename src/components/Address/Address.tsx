@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { useState } from 'react';
 import '../../styles/Address.css';
@@ -43,22 +44,22 @@ export const AddressComponent: React.FC = () => {
     setPrimaryAddress(address);
  };
  return (
-   <div>
-     <div className='Address-Container'>
-     <div className='Address-TitleDanBtnNew'>
+  <div className='Address-Container'>
+    <div className='Address-TitleDanBtnNew'>
       <h1>Address</h1>
       <button className='Address-BtnNewAddress' onClick={() => console.log('Add new address')}>+ Add New Address</button>
-      </div>
-          {addresses.map((address) => (
-            <AddressRow
-            key={address.phoneNumber}
-            address={address}
-            isPrimary={address === primaryAddress}
-            setAsPrimary={setAsPrimary}
-            />
-            ))}
-        </div>
-     </div>
+    </div>
+    <div className='list-address'>
+      {addresses.map((address) => (
+      <AddressRow
+        key={address.phoneNumber}
+        address={address}
+        isPrimary={address === primaryAddress}
+        setAsPrimary={setAsPrimary}
+        />
+      ))}
+    </div>
+  </div>
  );
 };
 

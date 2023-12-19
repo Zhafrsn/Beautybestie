@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { MainLayout } from 'layout';
 import '../styles/Products.css';
 import Productcard  from '../components/productcard/Productcard';
@@ -9,12 +10,17 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getProductsByCategory } from '../firebase/getProductsByCategory';
 import { DropdownSortBy } from 'components/DropDown/DropDownSortby';
 import '../styles/loading.css'
-import { addToCart, fetchCartData } from '../firebase/cart';
+import { addToCart, useCartItems } from '../firebase/cart';
+import { addToWishlist } from '../firebase/wishlist';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 export const Products: React.FC = () => {
   const [cardData, setCardData] = useState<TProduct[]>([]);
+  const [wishlist, setWishlist] = useState<string[]>([]);
+  const [cart, setCart] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [userId, setUserId] = useState<string | null>(null);
   const navigate = useNavigate();
   const { category } = useParams();
 
@@ -35,6 +41,19 @@ export const Products: React.FC = () => {
   
     fetchData();
   }, [category]);
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserId(user.uid);
+      } else {
+        setUserId(null); 
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const handleCategoryChange = (selectedValue: string) => {
     if (selectedValue === 'all') {
@@ -64,14 +83,31 @@ export const Products: React.FC = () => {
     }
   };
 
-  const handleAddToCart = async (productId: string, quantity: number) => {
+  const handleAddToWishlist = (product: TProduct) => {
     try {
-      await addToCart(productId, quantity);
-      const updatedCart = await fetchCartData();
-      console.log('Updated Cart Data:', updatedCart);
-      setCardData(updatedCart);
+      if (userId) {
+        addToWishlist(userId, product);
+        setWishlist((prevWishlist) => [...prevWishlist, product.id]);
+        console.log(`Product with ID ${product.id} added to wishlist`);
+      } else {
+        console.log('User is not authenticated.');
+      }
     } catch (error) {
-      console.error('Error adding to cart:', error);
+      console.error('Error adding to wishlist:', error);
+    }
+  };
+
+  const handleAddToCart = (product: TProduct) => {
+    try {
+      if (userId) {
+        addToCart(userId, product);
+        setCart((prevCart) => [...prevCart, product.id]);
+        console.log(`Product with ID ${product.id} added to Cart`);
+      } else {
+        console.log('User is not authenticated.');
+      }
+    } catch (error) {
+      console.error('Error adding to Cart:', error);
     }
   };
 
@@ -115,7 +151,8 @@ export const Products: React.FC = () => {
             <Productcard
               key={id}
               {...card}
-              addToCart={(productId, quantity) => handleAddToCart(productId, quantity)}
+              addToCart={() => handleAddToCart(card)}
+              addToWishlist={() => handleAddToWishlist(card)}
             />
           ))}
         </div>  
