@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCube, faHeart, faHome, faInfoCircle, faRightFromBracket, faSearch, faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { signOut } from 'firebase/auth';
@@ -24,6 +24,7 @@ export const Navitems: React.FC<NavitemsProps> = ({onSearchChange}) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!user);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleClick = (event: React.MouseEvent, page: string) => {
     if (!isLoggedIn) {
@@ -62,7 +63,11 @@ export const Navitems: React.FC<NavitemsProps> = ({onSearchChange}) => {
       </div>
       <div className="nav-item">
         {navItems.map(item => (
-          <a key={item.label} href={item.href} className="navbar__navitem" aria-label={item.label}>
+          <a key={item.label}
+            href={item.href}
+            className={`navbar__navitem ${location.pathname === item.href ? 'active' : ''}`}
+            aria-label={item.label}
+          >
             {item.label}
           </a>
         ))}

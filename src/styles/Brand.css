@@ -34,7 +34,7 @@
   color: #ffffffff;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .cardBrand {
     width: 450px;
     height: 230px;
@@ -44,5 +44,16 @@
     width: 270px;
     height: auto;
     text-align: center;
+  }
+}
+
+@media (max-width: 426px) {
+  .cardBrand{
+    width: 400px;
+    height: 180px;
+  }
+  .logoBrand{
+    width: 220px;
+    height: auto;
   }
 }

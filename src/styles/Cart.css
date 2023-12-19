@@ -120,10 +120,11 @@
   display: flex;
   flex-direction: column;
   width: 30%;
-  height: auto;
+  height: max-content;
   border: 2px solid #cccccc;
   padding: 16px;
   justify-content: space-between;
+  gap: 32px;
 }
 
 .cartCard__summary-title{

@@ -1,82 +1,53 @@
-import { collection, addDoc, query, where, getDocs, updateDoc, doc } from "firebase/firestore";
-import { firestore } from "../firebase/config";
-import { TProduct } from "../types/product.type";
+import { useState, useEffect } from 'react';
+import { addDoc, collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../firebase/config';
+import { TWishlist } from '../types/wishlist.type';
+import { TProduct } from '../types/product.type';
 
-export const addToCart = async (productId: string, quantity: number) => {
-  try {
-    console.log(`Adding product to cart. Product ID: ${productId}`);
+export const useCartItems = (userId: string) => {
+  const [cartItems, setCartItems] = useState<TWishlist[]>([]);
 
-    const productSnapshot = await getDocs(query(collection(firestore, "products"), where("id", "==", productId)));
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      try {
+        const q = query(collection(db, 'cart'), where("userId", "==", userId));
+        const querySnapshot = await getDocs(q);
 
-    console.log('Product Snapshot:', productSnapshot.docs);
-
-    const productDoc = productSnapshot.docs[0];
-
-    if (!productDoc) {
-      console.error(`Error: Product with ID ${productId} not found or has missing data.`);
-      throw new Error(`Error: Product with ID ${productId} not found or has missing data.`);
+        const items = querySnapshot.docs.map((doc) => doc.data() as TWishlist);
+        setCartItems(items);
+      } catch (error) {
+        console.error('Error fetching cart items:', error);
+      }
+    };
+    if (userId) {
+      console.log('Fetching cart items for userId:', userId);
+      fetchCartItems();
     }
 
-    const productIdFromDoc = productDoc.id;
+  }, [userId]);
 
-    const existingCartSnapshot = await getDocs(query(collection(firestore, "carts"), where("product.id", "==", productIdFromDoc)));
-    // const existingCartSnapshot = await getDocs(query(collection(firestore, "carts"), where("product.id", "==", productIdFromDoc), where("userId", "==", userId)));
-    console.log('Existing Cart Snapshot:', existingCartSnapshot.docs);
-    const existingCartDocs = existingCartSnapshot.docs;
-
-    if (existingCartDocs.length > 0) {
-      const existingCartItem = existingCartDocs[0];
-      const existingCartId = existingCartItem.id;
-
-      await updateDoc(doc(firestore, "carts", existingCartId), {
-        quantity: existingCartItem.data().quantity + quantity,
-      });
-    } else {
-      await addDoc(collection(firestore, "carts"), {
-        // userId: userId,
-        product: {
-          id: productIdFromDoc,
-          ...productDoc.data(),
-        },
-        quantity,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      });
-    }
-  } catch (error) {
-    console.error(`Error adding to cart: ${error.message}`);
-    throw error;
-  }
+  console.log('Cart items:', cartItems);
+  return cartItems;
 };
 
-export const fetchCartData = async () => {
+export const addToCart = async (userId: string, product: TProduct) => {
   try {
-    const cartSnapshot = await getDocs(collection(firestore, 'carts'));
-    const updatedCart = cartSnapshot.docs.map(doc => {
-      const productData = doc.data().product;
+    const cartCollection = collection(db, 'cart');
 
-      if (productData && productData.id) {
-        return {
-          id: productData.id,
-          bestSeller: productData.bestSeller,
-          brand: productData.brand,
-          category: productData.category,
-          description: productData.description,
-          image: productData.image,
-          name: productData.name,
-          price: productData.price,
-          stock: productData.stock,
-        };
-      } else {
-        throw new Error('Error: Product data or id is undefined');
-      }
+    await addDoc(cartCollection, {
+      userId: userId,
+      productId: product.id,
+      productName: product.name,
+      productPrice: product.price,
+      productImage: product.image,
+      quantity: 1,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
     });
 
-    const filteredCart = updatedCart.filter(cart => cart !== null) as TProduct[];
+    console.log('Product added to cart:', product);
 
-    return filteredCart;
   } catch (error) {
-    console.error(error.message);
-    throw error;
+    console.error('Error adding to cart:', error);
   }
 };

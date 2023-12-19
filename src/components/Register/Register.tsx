@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import { Navbar } from "../Navbar/Navbar";
 import '../../styles/Register.css';
 import { Sidebar } from 'components/Sidebar';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { getFirestore, setDoc, doc } from 'firebase/firestore';
-import { auth } from "../../firebase/config"
+import { auth, db } from "../../firebase/config"
 import { useNavigate } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { registerUser } from '../../firebase/user';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 export const Register: React.FC = () => {
   const [fullName, setFullName] = useState('');
@@ -38,9 +38,33 @@ export const Register: React.FC = () => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
+  
+      if (!user.emailVerified) {
+        console.warn('User email is not verified. Please check your email for a verification link.');
+        return { success: false, message: 'Email not verified. Please check your email for a verification link.' };
+      }
+  
+      const userDocRef = doc(db, 'userData', user.uid);
+      const userDocSnapshot = await getDoc(userDocRef);
+  
+      if (!userDocSnapshot.exists()) {
+        const userData = {
+          uid: user.uid,
+          displayName: user.displayName || '',
+          email: user.email || '',
+          photoURL: user.photoURL || '',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        };
+  
+        await setDoc(userDocRef, userData);
+      }
       console.log('User signed in with Google:', user);
+      navigate('/');
+      return { success: true, message: 'Login successful', userData: user };
     } catch (error) {
       console.error('Google Sign-In error:', error);
+      return { success: false, message: 'Google Sign-In failed' };
     }
   };
 
@@ -122,7 +146,7 @@ export const Register: React.FC = () => {
 
     // Validate phone number (you can customize the validation logic)
     const phoneRegex = /^[0-9]+$/;
-    if (!phoneRegex.test(phoneNumber.trim()) || phoneNumber.trim().length !== 10) {
+    if (!phoneRegex.test(phoneNumber.trim()) || phoneNumber.trim().length !== 12) {
       setPhoneNumberError('Invalid phone number');
       isValid = false;
     }
@@ -145,17 +169,13 @@ export const Register: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Perform form validation
     const isFormValid = validateForm();
 
     if (isFormValid && captchaValue) {
-      handleSingUp(e);
+      handleSignUp(e);
     } else {
-      // Handle validation errors
-      // Clear previous error messages
       setErrorMessages([]);
 
-      // Populate error messages
       if (!isFormValid) {
         setErrorMessages([
           fullNameError || '',
@@ -192,40 +212,33 @@ export const Register: React.FC = () => {
     }
   };
 
-  const handleSingUp = async (e: React.FormEvent) => {
+  const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
+  
     if (captchaValue) {
-      if (password !== confirmPassword) {
-        alert('Password and confirm password do not match');
-        return;
-      }
-
-      try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
-        await updateProfile(user, {
-          displayName: fullName,
-        });
-
-        const db = getFirestore();
-        await setDoc(doc(db, 'userData', userCredential.user.uid), {
-          uid: user.uid,
-          displayName: fullName,
-          phoneNumber: phoneNumber,
-        });
-        console.log('Registration successful');
-        alert('Registration successful');
+      const registrationData = {
+        email,
+        password,
+        confirmPassword,
+        fullName,
+        phoneNumber,
+      };
+  
+      const registrationResult = await registerUser(auth, registrationData);
+  
+      if (registrationResult.success) {
+        console.log(registrationResult.message);
+        alert(registrationResult.message);
         navigate('/login');
-      } catch (error) {
-        console.error(error);
-        alert('Registration failed');
+      } else {
+        console.error(registrationResult.message);
+        alert(registrationResult.message);
       }
     } else {
       console.error('Captcha not completed');
     }
   };
 
-  
   return (
     <><Sidebar contentId="side-bar" isOpen={false} toggleSidebar={() => {}} />
       <Navbar />

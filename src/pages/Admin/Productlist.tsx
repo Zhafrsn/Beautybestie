@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useMemo, useState } from 'react';
 import '../../styles/Admin/ProductAdmin.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
