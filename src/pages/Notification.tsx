@@ -1,20 +1,20 @@
 import ProfileComp from "components/Profile/ProfileComp"
 import { MainLayout } from "layout"
-import { faFileCircleXmark } from "@fortawesome/free-solid-svg-icons"
+import { faBellSlash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-// import { NotifCard } from '../components/Notification';
+import '../styles/Notification.css';
 
 export const Notification: React.FC = () => {
   return (
     <div>
         <MainLayout>
-            <div className="order-container">
+            <div className="Notification-container">
                 <ProfileComp />
-                <div className="order-content">
-                    <div className="order-items">
-                        <div className="notPaid">
-                            <FontAwesomeIcon icon={faFileCircleXmark} className="notPaid-icon"/>
-                            <p>No orders yet</p>
+                <div className="Notification-content">
+                    <div className="Notification-items">
+                        <div className="Notification">
+                            <FontAwesomeIcon icon={faBellSlash} className="Notification-Empty"/>
+                            <p>Notification Empty</p>
                         </div>
                     </div>
                 </div>
