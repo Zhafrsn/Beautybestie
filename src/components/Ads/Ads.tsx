@@ -13,11 +13,11 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 900, // Sesuaikan dengan kecepatan slide
+    speed: 900, 
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000, // Sesuaikan dengan kecepatan autoplay
+    autoplaySpeed: 3000, 
     afterChange: (current: number) => setCurrentSlide(current),
     arrows: false,
 

@@ -11,14 +11,8 @@ const AboutUsComp: React.FC = () => {
           <img src='images/aboutus.png'
                alt="logo"/>
           <div className='aboutus__text'>
-            <div className='aboutus__text1'>
-              <p>Change Your Life With</p>
-              <p>Beauty</p>
-            </div>
-            <div className='aboutus__text2'>
-              <p>Come To Our Website Which Provides</p>
-              <p>Everything You Need</p>
-            </div>
+              <p className='aboutus__text1'>Change Your Life With <br/>Beauty</p>
+              <p className='aboutus__text2'>Come To Our Website Which Provides <br/>Everything You Need</p>
           </div>
         </div>
      </div>
