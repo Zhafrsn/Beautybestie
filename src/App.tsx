@@ -18,13 +18,13 @@ import { BeingPackaged } from 'pages/Order/BeingPackagedPage';
 import { Sent } from 'pages/Order/SentPage';
 import { Notification } from 'pages/Notification';
 // Admin
-import { LoginAdmin } from 'pages/Admin/Login';
-import { Dashboard } from 'pages/Admin/Dashboard';
-import User from 'pages/Admin/User';
-import Customer from 'pages/Admin/Customer';
-import Productlist from 'pages/Admin/Productlist';
-import Transaction from 'pages/Admin/Transaction';
-import Reports from 'pages/Admin/Reports';
+// import { LoginAdmin } from 'pages/Admin/Login';
+// import { Dashboard } from 'pages/Admin/Dashboard';
+// import User from 'pages/Admin/User';
+// import Customer from 'pages/Admin/Customer';
+// import Productlist from 'pages/Admin/Productlist';
+// import Transaction from 'pages/Admin/Transaction';
+// import Reports from 'pages/Admin/Reports';
 
 export const App: React.FC = () => {
   return (
@@ -51,13 +51,13 @@ export const App: React.FC = () => {
           <Route path='/order/sent' element={<Sent/>}/>
           <Route path='/notification' element={<Notification/>}/>
           {/* Route Admin */}
-          <Route path='/Admin' element={<LoginAdmin/>}/>
+          {/* <Route path='/Admin' element={<LoginAdmin/>}/>
           <Route path='/Dashboard' element={<Dashboard/>}/>
           <Route path='/admin/users' element={<User/>}/>
           <Route path='/admin/customers' element={<Customer />} />
           <Route path='/admin/productlist' element={<Productlist />} />
           <Route path='/admin/transactions' element={<Transaction />} />
-          <Route path='/admin/reports' element={<Reports />} />
+          <Route path='/admin/reports' element={<Reports />} /> */}
         </Routes>
       </Router>
     </>
