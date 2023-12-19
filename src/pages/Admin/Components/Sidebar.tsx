@@ -15,7 +15,9 @@ interface SiderbarAdminProps {
     username: string;
   }
 
-export const Sidebar: React.FC<SiderbarAdminProps> = ({username}) => {
+export const Sidebar: React.FC<SiderbarAdminProps> = ({ username }) => {
+    const isAdmin = true;
+    
     return (
         <div className="siderbar-admin">
             <div className="siderAdmin-header">
@@ -44,7 +46,7 @@ export const Sidebar: React.FC<SiderbarAdminProps> = ({username}) => {
                 {siderbarItems.map((item) => (
                     <div key={item.label} className="sideAdmin-label">
                         <div className="sideAdmin-icons">{item.icon}</div>
-                        <a href={item.href} className="sideAdmin_items-label">{item.label}</a>
+                        <a href={item.href} className={`sideAdmin_items-label ${!isAdmin ? 'disabled' : ''}`}>{item.label}</a>
                     </div>
                 ))}
             </div>
