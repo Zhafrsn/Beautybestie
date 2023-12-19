@@ -9,6 +9,7 @@ export type TUser = User & {
   id: string;
   firstName: string;
   lastName: string;
+  photoURL: string;
   role: ERole;
   phoneNumber: string;
   address: string;
