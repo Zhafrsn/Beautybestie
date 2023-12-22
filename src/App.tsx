@@ -50,7 +50,6 @@ export const App: React.FC = () => {
           <Route path='/order/being-packaged' element={<BeingPackaged/>}/>
           <Route path='/order/sent' element={<Sent/>}/>
           <Route path='/notification' element={<Notification/>}/>
-          <Route path='/notification' element={<Notification/>}/>
           {/* Route Admin */}
           {/* <Route path='/Admin' element={<LoginAdmin/>}/>
           <Route path='/Dashboard' element={<Dashboard/>}/>
